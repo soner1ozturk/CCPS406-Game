@@ -1,0 +1,62 @@
+{
+  "gameTitle": "Castillo de Luna",
+  "gameDescription": "Made by Ahmet Soner Ozturk, Jeremy Smith, Michael Kilonzo, Raja Umer",
+  "gameIntro": {},
+  "room": [
+    {
+      "id": 1,
+      "name": "courtyard"
+    },
+    {
+      "id": 2,
+      "name": "Foyer"
+    },
+    {
+      "id": 3,
+      "name": "Armory"
+    },
+    {
+      "id": 4,
+      "name": "Kitchen"
+    },
+    {
+      "id": 5,
+      "name": "Dining Room"
+    },
+    {
+      "id": 6,
+      "name": "Chapel"
+    },
+    {
+      "id": 7,
+      "name": "Library"
+    },
+    {
+      "id": 8,
+      "name": "Grand Hall"
+    },
+    {
+      "id": 9,
+      "name": "Cellar"
+    },
+    {
+      "id": 10,
+      "name": "Dungeon"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "roomId": 1,
+      "name": "Candlestick",
+      "first": "You see a candlestick, I wonder what we can do with it. It lights up the room.",
+      "second": "Just a candlestick lighting up the room still."
+    },
+    {
+      "id": 2,
+      "name": "Sword",
+      "first": "first time seeing the sword",
+      "second": "2nd time seeing the sword"
+    }
+  ]
+}
