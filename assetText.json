@@ -1,11 +1,12 @@
 {
   "gameTitle": "Castillo de Luna",
-  "gameDescription": "Made by Ahmet Soner Ozturk, Jeremy Smith, Michael Kilonzo, Raja Umer",
-  "gameIntro": {},
+  "gameCredits": "Made by Ahmet Soner Ozturk, Jeremy Smith, Michael Kilonzo, Raja Umer",
+  "gameIntro": "Today, in the year of our lord 1137, you find yourself entering Castillo de Luna. \"Welcome Evander\" is written on the archway above the outside door. You think to yourself, \"This place could be filled with great mysteries or great treasures\". So grab your sword, sharpen your skills, and prepare to embark on an epic journey!",
   "room": [
     {
       "id": 1,
-      "name": "courtyard"
+      "name": "Courtyard",
+      "startRoom": true
     },
     {
       "id": 2,
@@ -50,13 +51,29 @@
       "roomId": 1,
       "name": "Candlestick",
       "first": "You see a candlestick, I wonder what we can do with it. It lights up the room.",
-      "second": "Just a candlestick lighting up the room still."
+      "second": "Just a candlestick lights up the room still."
     },
     {
       "id": 2,
       "name": "Sword",
       "first": "first time seeing the sword",
       "second": "2nd time seeing the sword"
+    },
+    {
+      "id": 3,
+      "name": "Note",
+      "first": "A table sits beside the door with a piece of paper on it. It reads, \"You are a fearless warrior. Defeat Evil. Find the princess\".",
+      "second": "The paper is still on the table with the same inscription. \"You are a fearless warrior. Defeat Evil. Find the princess\"."
+    }
+  ],
+  "character": [
+    {
+      "name": "Evander",
+      "health": 5
+    },
+    {
+      "name": "Orion",
+      "helath": 5
     }
   ]
 }
