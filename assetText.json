@@ -126,5 +126,13 @@
       "5": "There is nothing in that direction.",
       "6": "Can't go that way."
     }
+  ],
+  "movement": [
+    {
+      "left": ["l","left","w","west"],
+      "right": ["r","right","e","east"],
+      "up": ["u","up","n","north"],
+      "down": ["d","down","s","south"],
+    }
   ]
 }
