@@ -105,6 +105,30 @@
       "name": "Key", 
       "firstMessage": "I wonder what this key opens.",
       "secondMessage": "A key."
+    },
+    {
+      "id": 5,
+      "name": "Backpack", 
+      "firstMessage": "Hey, its something to hold all of the awsome things I find.",
+      "secondMessage": "A backpack to hold things, maybe I should get backpack!"
+    },
+    {
+      "id": 6,
+      "name": "Boots of Silence", 
+      "firstMessage": "Boots of Silence? I wonder what these do.
+      "secondMessage": "A pair of boots still sitting here."
+    },
+    {
+      "id": 7
+      "name": "Necklace of Dragon Beads"
+      "firstMessage": "Beads from a Dragon, glow brightly. Possibly used as a weapon against evil.",
+      "secondMessage": "Beads still laying on the floor in the corner."
+    },
+    {
+      "id": 8,
+      "name": "Gloves", 
+      "firstMessage": "Gloves of Pure Power, used to attack harder.",
+      "secondMessage": "The gloves are still crossed on the chair ready for use."
     }
   ],
   "character": [
