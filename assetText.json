@@ -58,7 +58,6 @@
   "items": [
     {
       "id": 1,
-      "roomId": 1,
       "name": "Candlestick",
       "first": "You see a candlestick, I wonder what we can do with it. It lights up the room.",
       "second": "Just a candlestick lights up the room still."
@@ -95,10 +94,10 @@
     },
     {
       "name": "Orion",
-      "helath": 5
+      "health": 5
     }
   ],
-  "error": [
+  "messages": [
     {
       "1": "You cant pick that up!",
       "2": "You pick up",
