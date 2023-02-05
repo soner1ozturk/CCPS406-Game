@@ -7,84 +7,104 @@
       "id": 1,
       "name": "Courtyard",
       "startRoom": true,
-      "adjRooms": {"N": 7,"S": 2,"E": 5,"W": null}
+      "adjRooms": {"N": 7,"S": 2,"E": 5,"W": null},
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 2,
       "name": "Foyer",
-      "adjRooms": {"N": 1,"S": null,"E": 4, "W": 3 }
+      "adjRooms": {"N": 1,"S": null,"E": 4, "W": 3 },
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 3,
       "name": "Armory",
-      "adjRooms": {"N": null,"S": null,"E": 2,"W": null}
+      "adjRooms": {"N": null,"S": null,"E": 2,"W": null},
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 4,
       "name": "Kitchen",
-      "adjRooms": {"N": 5,"S": null,"E": null, "W": 2}
+      "adjRooms": {"N": 5,"S": null,"E": null, "W": 2},
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 5,
       "name": "Dining Room",
-      "adjRooms": {"N": 6,"S": 4,"E": null, "W": 1}
+      "adjRooms": {"N": 6,"S": 4,"E": null, "W": 1},
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 6,
       "name": "Chapel",
-      "adjRooms": {"N": null,"S": 5,"E": null, "W": 7}
+      "adjRooms": {"N": null,"S": 5,"E": null, "W": 7},
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 7,
       "name": "Library",
-      "adjRooms": {"N": null,"S": 1,"E": 6, "W": 8}
+      "adjRooms": {"N": null,"S": 1,"E": 6, "W": 8},
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 8,
       "name": "Grand Hall",
-      "adjRooms": {"N": null,"S": null,"E": 7, "W": null}
+      "adjRooms": {"N": null,"S": null,"E": 7, "W": null},
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 9,
       "name": "Cellar",
-      "adjRooms": {"N": 10,"S": 7,"E": null, "W": null}
+      "adjRooms": {"N": 10,"S": 7,"E": null, "W": null},
+      "firstMessage": "",
+      "secondMessage": ""
     },
     {
       "id": 10,
       "name": "Dungeon",
-      "adjRooms": {"N": null,"S": 9,"E": null, "W": null}
+      "adjRooms": {"N": null,"S": 9,"E": null, "W": null},
+      "firstMessage": "",
+      "secondMessage": ""
     }
   ],
   "items": [
     {
       "id": 1,
       "name": "Candlestick",
-      "first": "You see a candlestick, I wonder what we can do with it. It lights up the room.",
-      "second": "Just a candlestick lights up the room still."
+      "firstMessage": "You see a candlestick, I wonder what we can do with it. It lights up the room.",
+      "secondMessage": "Just a candlestick lights up the room still."
     },
     {
       "id": 2,
       "name": "Sword",
-      "first": "first time seeing the sword",
-      "second": "2nd time seeing the sword"
+      "firstMessage": "first time seeing the sword",
+      "secondMessage": "2nd time seeing the sword"
     },
     {
       "id": 3,
       "name": "Note",
-      "first": "A table sits beside the door with a piece of paper on it. It reads, \"You are a fearless warrior. Defeat Evil. Find the princess\".",
-      "second": "The paper is still on the table with the same inscription. \"You are a fearless warrior. Defeat Evil. Find the princess\"."
+      "firstMessage": "A table sits beside the door with a piece of paper on it. It reads, \"You are a fearless warrior. Defeat Evil. Find the princess\".",
+      "secondMessage": "The paper is still on the table with the same inscription. \"You are a fearless warrior. Defeat Evil. Find the princess\"."
     },
     {
       "id": 4,
       "name": "Elixir", 
-      "first": "Mystical elixir heals wounds",
-      "second": "Elixir replenishes health"
+      "firstMessage": "Mystical elixir heals wounds",
+      "secondMessage": "Elixir replenishes health"
     },
     {
       "id": 4,
       "name": "Key", 
-      "first": "I wonder what this key opens.",
-      "second": "A key."
+      "firstMessage": "I wonder what this key opens.",
+      "secondMessage": "A key."
     }
   ],
   "character": [
