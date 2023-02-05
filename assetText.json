@@ -6,43 +6,53 @@
     {
       "id": 1,
       "name": "Courtyard",
-      "startRoom": true
+      "startRoom": true,
+      "adjRooms": {"N": 7,"S": 2,"E": 5,"W": null}
     },
     {
       "id": 2,
-      "name": "Foyer"
+      "name": "Foyer",
+      "adjRooms": {"N": 1,"S": null,"E": 4, "W": 3 }
     },
     {
       "id": 3,
-      "name": "Armory"
+      "name": "Armory",
+      "adjRooms": {"N": null,"S": null,"E": 2,"W": null}
     },
     {
       "id": 4,
-      "name": "Kitchen"
+      "name": "Kitchen",
+      "adjRooms": {"N": 5,"S": null,"E": null, "W": 2}
     },
     {
       "id": 5,
-      "name": "Dining Room"
+      "name": "Dining Room",
+      "adjRooms": {"N": 6,"S": 4,"E": null, "W": 1}
     },
     {
       "id": 6,
-      "name": "Chapel"
+      "name": "Chapel",
+      "adjRooms": {"N": null,"S": 5,"E": null, "W": 7}
     },
     {
       "id": 7,
-      "name": "Library"
+      "name": "Library",
+      "adjRooms": {"N": null,"S": 1,"E": 6, "W": 8}
     },
     {
       "id": 8,
-      "name": "Grand Hall"
+      "name": "Grand Hall",
+      "adjRooms": {"N": null,"S": null,"E": 7, "W": null}
     },
     {
       "id": 9,
-      "name": "Cellar"
+      "name": "Cellar",
+      "adjRooms": {"N": 10,"S": 7,"E": null, "W": null}
     },
     {
       "id": 10,
-      "name": "Dungeon"
+      "name": "Dungeon",
+      "adjRooms": {"N": null,"S": 9,"E": null, "W": null}
     }
   ],
   "items": [
@@ -64,6 +74,18 @@
       "name": "Note",
       "first": "A table sits beside the door with a piece of paper on it. It reads, \"You are a fearless warrior. Defeat Evil. Find the princess\".",
       "second": "The paper is still on the table with the same inscription. \"You are a fearless warrior. Defeat Evil. Find the princess\"."
+    },
+    {
+      "id": 4,
+      "name": "Elixir", 
+      "first": "Mystical elixir heals wounds",
+      "second": "Elixir replenishes health"
+    },
+    {
+      "id": 4,
+      "name": "Key", 
+      "first": "I wonder what this key opens.",
+      "second": "A key."
     }
   ],
   "character": [
@@ -80,7 +102,10 @@
     {
       "1": "You cant pick that up!",
       "2": "You pick up",
-      "3": "You Died, The End!"
+      "3": "You Died, The End!",
+      "4": "There is nothing over there.",
+      "5": "There is nothing in that direction.",
+      "6": "Can't go that way."
     }
   ]
 }
