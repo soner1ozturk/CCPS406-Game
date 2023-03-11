@@ -1,15 +1,20 @@
 class Character:
-    id = ''
-    health = 100
-    name=''
-
-    def __init__(self, name):
+    def __init__(self, id, name, health):
+        self.id = id
         self.name = name
+        self.health = health
+
+    def getName(self):
+        return self.name
+        
+    def __repr__(self):
+        return f'<Character: {self.name}>'
 
 class GoodCharacter(Character): #sublcass, inherits from Character
-    def getname(self):
-        return self.name
+    def __init__(self, id, name, health):
+        super().__init__(id, name, health)
+        self.inventory = []
 
 class BadCharacter(Character): #subclass, inherits from Character
-    def getname(self):
-        return self.name
+    def __init__(self, id, name, health):
+        super().__init__(id, name, health)

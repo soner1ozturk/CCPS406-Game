@@ -6,7 +6,7 @@
     {
       "id": 1,
       "name": "Courtyard",
-      "startRoom": true,
+      "visited": true,
       "adjRooms": {"N": 7,"S": 2,"E": 5,"W": null},
       "firstMessage": "",
       "secondMessage": ""
@@ -14,6 +14,7 @@
     {
       "id": 2,
       "name": "Foyer",
+      "visited": false,
       "adjRooms": {"N": 1,"S": null,"E": 4, "W": 3 },
       "firstMessage": "",
       "secondMessage": ""
@@ -21,6 +22,7 @@
     {
       "id": 3,
       "name": "Armory",
+      "visited": false,
       "adjRooms": {"N": null,"S": null,"E": 2,"W": null},
       "firstMessage": "",
       "secondMessage": ""
@@ -28,6 +30,7 @@
     {
       "id": 4,
       "name": "Kitchen",
+      "visited": false,
       "adjRooms": {"N": 5,"S": null,"E": null, "W": 2},
       "firstMessage": "",
       "secondMessage": ""
@@ -35,6 +38,7 @@
     {
       "id": 5,
       "name": "Dining Room",
+      "visited": false,
       "adjRooms": {"N": 6,"S": 4,"E": null, "W": 1},
       "firstMessage": "",
       "secondMessage": ""
@@ -42,6 +46,7 @@
     {
       "id": 6,
       "name": "Chapel",
+      "visited": false,
       "adjRooms": {"N": null,"S": 5,"E": null, "W": 7},
       "firstMessage": "",
       "secondMessage": ""
@@ -49,6 +54,7 @@
     {
       "id": 7,
       "name": "Library",
+      "visited": false,
       "adjRooms": {"N": null,"S": 1,"E": 6, "W": 8},
       "firstMessage": "",
       "secondMessage": ""
@@ -56,6 +62,7 @@
     {
       "id": 8,
       "name": "Grand Hall",
+      "visited": false,
       "adjRooms": {"N": null,"S": null,"E": 7, "W": null},
       "firstMessage": "",
       "secondMessage": ""
@@ -63,6 +70,7 @@
     {
       "id": 9,
       "name": "Cellar",
+      "visited": false,
       "adjRooms": {"N": 10,"S": 7,"E": null, "W": null},
       "firstMessage": "",
       "secondMessage": ""
@@ -70,77 +78,97 @@
     {
       "id": 10,
       "name": "Dungeon",
+      "visited": false,
       "adjRooms": {"N": null,"S": 9,"E": null, "W": null},
       "firstMessage": "",
       "secondMessage": ""
     }
   ],
-  "items": [
-    {
-      "id": 1,
-      "name": "Candlestick",
-      "firstMessage": "You see a candlestick, I wonder what we can do with it. It lights up the room.",
-      "secondMessage": "Just a candlestick lights up the room still."
-    },
-    {
-      "id": 2,
-      "name": "Sword",
-      "firstMessage": "first time seeing the sword",
-      "secondMessage": "2nd time seeing the sword"
-    },
-    {
-      "id": 3,
-      "name": "Note",
-      "firstMessage": "A table sits beside the door with a piece of paper on it. It reads, \"You are a fearless warrior. Defeat Evil. Find the princess\".",
-      "secondMessage": "The paper is still on the table with the same inscription. \"You are a fearless warrior. Defeat Evil. Find the princess\"."
-    },
-    {
-      "id": 4,
-      "name": "Elixir", 
-      "firstMessage": "Mystical elixir heals wounds",
-      "secondMessage": "Elixir replenishes health"
-    },
-    {
-      "id": 4,
-      "name": "Key", 
-      "firstMessage": "I wonder what this key opens.",
-      "secondMessage": "A key."
-    },
-    {
-      "id": 5,
-      "name": "Backpack", 
-      "firstMessage": "Hey, its something to hold all of the awsome things I find.",
-      "secondMessage": "A backpack to hold things, maybe I should get backpack!"
-    },
-    {
-      "id": 6,
-      "name": "Boots of Silence", 
-      "firstMessage": "Boots of Silence? I wonder what these do."
-      "secondMessage": "A pair of boots still sitting here."
-    },
-    {
-      "id": 7
-      "name": "Necklace of Dragon Beads"
-      "firstMessage": "Beads from a Dragon, glow brightly. Possibly used as a weapon against evil.",
-      "secondMessage": "Beads still laying on the floor in the corner."
-    },
-    {
-      "id": 8,
-      "name": "Gloves", 
-      "firstMessage": "Gloves of Pure Power, used to attack harder.",
-      "secondMessage": "The gloves are still crossed on the chair ready for use."
-    }
-  ],
-  "character": [
-    {
-      "name": "Evander",
-      "health": 5
-    },
-    {
-      "name": "Orion",
-      "health": 5
-    }
-  ],
+  "items": {
+    "consumables": [
+      {
+        "id": 1,
+        "name": "Candlestick",
+        "restoreHealth": false,
+        "firstMessage": "You see a candlestick, I wonder what we can do with it. It lights up the room.",
+        "secondMessage": "Just a candlestick lights up the room still."
+      },
+      {
+        "id": 3,
+        "name": "Note",
+        "restoreHealth": false,
+        "firstMessage": "A table sits beside the door with a piece of paper on it. It reads, \"You are a fearless warrior. Defeat Evil. Find the princess\".",
+        "secondMessage": "The paper is still on the table with the same inscription. \"You are a fearless warrior. Defeat Evil. Find the princess\"."
+      },
+      {
+        "id": 4,
+        "name": "Elixir", 
+        "restoreHealth": 10,
+        "firstMessage": "Mystical elixir heals wounds",
+        "secondMessage": "Elixir replenishes health"
+      },
+      {
+        "id": 4,
+        "name": "Key", 
+        "restoreHealth": false,
+        "firstMessage": "I wonder what this key opens.",
+        "secondMessage": "A key."
+      },
+      {
+        "id": 5,
+        "name": "Backpack", 
+        "restoreHealth": false,
+        "firstMessage": "Hey, its something to hold all of the awsome things I find.",
+        "secondMessage": "A backpack to hold things, maybe I should get backpack!"
+      },
+      {
+        "id": 6,
+        "name": "Boots of Silence", 
+        "restoreHealth": false,
+        "firstMessage": "Boots of Silence? I wonder what these do.",
+        "secondMessage": "A pair of boots still sitting here."
+      },
+      {
+        "id": 8,
+        "name": "Gloves", 
+        "restoreHealth": false,
+        "firstMessage": "Gloves of Pure Power, used to attack harder.",
+        "secondMessage": "The gloves are still crossed on the chair ready for use."
+      }
+    ],
+  "weapons": [
+      {
+        "id": 2,
+        "name": "Sword",
+        "damage": 10,
+        "firstMessage": "first time seeing the sword",
+        "secondMessage": "2nd time seeing the sword"
+      },
+      {
+        "id": 7,
+        "name": "Necklace of Dragon Beads",
+        "damage": 20,
+        "firstMessage": "Beads from a Dragon, glow brightly. Possibly used as a weapon against evil.",
+        "secondMessage": "Beads still laying on the floor in the corner."
+      }
+    ]
+  },
+  "character": {
+      "goodCharacter": [
+          {
+          "id":1,
+          "name": "Evander",
+          "health": 5 
+          }
+      ],
+      "badCharacter" : [
+      {
+        "id": 2,
+        "name": "Orion",
+        "health": 5
+      }
+    ]
+  },
   "messages": [
     {
       "1": "You cant pick that up!",
@@ -156,7 +184,7 @@
       "left": ["l","left","w","west"],
       "right": ["r","right","e","east"],
       "up": ["u","up","n","north"],
-      "down": ["d","down","s","south"],
+      "down": ["d","down","s","south"]
     }
   ]
 }
