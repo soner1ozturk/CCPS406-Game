@@ -8,9 +8,6 @@ import ParseVerbs
 if __name__ == "__main__":
     GameStart.start_of_game()
 
-    gameData=AssetBuilder.load_data()
-    print(gameData)
-
     name = input("Let's start with your name: ")
     print("Hello " + name + ".")
     player = Character.GoodCharacter(name)
