@@ -18,14 +18,24 @@ def move():
         print("There is nothing in that direction... ")
         move() 
 
+
+def use_item(itemSelection): # to continue 
+    if itemDict[itemSelection].isConsumable():
+        # removes consumable item from player inventory when used
+        player._remInv(itemDict[itemSelection])
+
+    elif itemDict[itemSelection].isWeapon():
+        pass
+
+
 def open_inventory():
     # populate inventory items 
     inv = {}
-    for i in player._getInv():
-        if i.upper() not in inv:
-            inv[i.upper()] = 1
+    for item in player._getInv():
+        if item._getItemName().upper() not in inv:
+            inv[item._getItemName().upper()] = 1
         else:
-            inv[i.upper()] += 1
+            inv[item._getItemName().upper()] += 1
     if len(inv) == 0:
         print("Inventory is empty... ")
     else:
@@ -33,7 +43,8 @@ def open_inventory():
             print(inv)
             selection = input("Opening inventory, select item:  ").upper() 
             if selection in inv.keys():
-                print("Using " + selection) # TODO: implement item use functionality 
+                print("Using " + selection) # TODO: implement item use functionality
+                use_item(selection)
                 break
             else:
                 print("Enter a valid inventory item...")
