@@ -11,7 +11,7 @@ def move():
         # updates player location and reprompts for next action
         newRoom = roomDict[player._getRoom().adjRooms[direction]]
         player._setRoom(newRoom)
-        print(">  Entering the {new_room}...".format(new_room = newRoom._getRoomName()))
+        print(">  Entering the {new_room}... ".format(new_room = newRoom._getRoomName()))
         get_action() 
     # no adj room in inputted direction
     else:
@@ -37,20 +37,15 @@ if __name__ == "__main__":
     GameStart.start_of_game()
     name = input("Let's start with your name: ")
     player.setName(name)
+#   # room.id: 2 is the foyer (starting room)
+    player._setRoom(roomDict[2])
     time.sleep(1)
     print("Hello " + player.getName() + ".")
     print("GAME STORYLINE START --------------------------------")
     time.sleep(1)
-    
 
-    while True:
-            ParseVerbs.list_available_verbs()
-            verb=input("What To Do: ")
-            ParseVerbs.check_verb(verb)
-
-
-            break
-
+    get_action() 
+        
 
 
     GameEnd.end_of_game()
