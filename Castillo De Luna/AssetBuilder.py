@@ -28,9 +28,14 @@ evandor = characterList[1]
 
 #rooms for accessing, room id is key 
 roomDict = {}
-
 for room in roomsList:
     roomDict[room.id] = room 
+
+#items for accessing, item name is key 
+itemDict = {}
+for item in itemsList:
+    itemDict[item._getItemName().upper()] = item
+
 
 
 
