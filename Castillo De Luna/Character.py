@@ -31,6 +31,8 @@ class GoodCharacter(Character): #sublcass, inherits from Character
     def _addInv(self, item):
         self.inventory.append(item)
 
+    def _remInv(self, item):
+        self.inventory.remove(item)
 
 
 class BadCharacter(Character): #subclass, inherits from Character
