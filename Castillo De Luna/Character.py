@@ -7,6 +7,11 @@ class Character:
     def getName(self):
         return self.name
     
+    def _setRoom(self, room):
+        self.room = room
+    
+    def _getRoom(self):
+        return self.room
 
     
     def __repr__(self):
