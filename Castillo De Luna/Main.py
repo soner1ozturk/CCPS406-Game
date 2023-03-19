@@ -6,7 +6,7 @@ import ParseVerbs
 import time
 
 def move():
-    direction = input('Which direction to move? [N/S/E/W]: ')
+    direction = input('Which direction to move? [N/S/E/W]: ').upper()
     if player._getRoom().adjRooms[direction] != None:
         # updates player location and reprompts for next action
         newRoom = roomDict[player._getRoom().adjRooms[direction]]
@@ -18,16 +18,41 @@ def move():
         print("There is nothing in that direction... ")
         move() 
 
+def open_inventory():
+    # populate inventory items 
+    inv = {}
+    for i in player._getInv():
+        if i.upper() not in inv:
+            inv[i.upper()] = 1
+        else:
+            inv[i.upper()] += 1
+    if len(inv) == 0:
+        print("Inventory is empty... ")
+    else:
+        while True:
+            print(inv)
+            selection = input("Opening inventory, select item:  ").upper() 
+            if selection in inv.keys():
+                print("Using " + selection) # TODO: implement item use functionality 
+                break
+            else:
+                print("Enter a valid inventory item...")
+                open_inventory()
+    get_action()
+         
+        
 
 def get_action():
     while True:
         ParseVerbs.list_available_verbs()
-        verb = input("What To Do: ")
-        verb.upper()
-        ParseVerbs.check_verb(verb)
+        action = input("What To Do: ").upper()
+        ParseVerbs.check_verb(action)
         # action to move player in world 
-        if verb == "GO":
+        if action == "GO":
             move()
+        elif action == "INV":
+            open_inventory()
+        
 
         get_action()
         break 

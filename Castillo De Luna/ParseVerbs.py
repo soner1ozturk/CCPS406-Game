@@ -8,8 +8,13 @@
 # attack
 
 def check_verb(verb):
-    if True:
-        print("Good to do that:" + verb)
+    verbs = ["GO", "INV", "USE", "QUIT", "LIST"]
+    if verb in verbs:
+        print("Good to do that: " + verb)
+    else:
+        print("Please enter a valid command... ")
+        return False
+
 
 def list_available_verbs():
-    print("GO |  USE  |  QUIT  | LIST")
+    print(" GO  |  INV  |  USE  |  QUIT  |  LIST ")
