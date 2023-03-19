@@ -7,8 +7,5 @@ class Room:
         self.firstMessage = firstMessage
         self.secondMessage = secondMessage
 
-    def _getRoomName(self):
-        return self.name
-
     def __repr__(self):
         return f'<Room: {self.name}>'
