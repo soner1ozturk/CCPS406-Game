@@ -20,7 +20,7 @@ class Character:
 class GoodCharacter(Character): #sublcass, inherits from Character
     def __init__(self, id, name, health):
         super().__init__(id, name, health)
-        self.inventory = ["apple", "orange", "banana", "orange"]
+        self.inventory = []
     
     def setName(self, name):
         self.name = name
