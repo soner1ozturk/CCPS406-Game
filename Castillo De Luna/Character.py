@@ -25,6 +25,12 @@ class GoodCharacter(Character): #sublcass, inherits from Character
     def setName(self, name):
         self.name = name
 
+    def _getInv(self):
+        return self.inventory
+    
+    def _addInv(self, item):
+        self.inventory.append(item)
+
 
 
 class BadCharacter(Character): #subclass, inherits from Character
