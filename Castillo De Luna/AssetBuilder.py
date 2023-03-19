@@ -22,22 +22,16 @@ with open(assets, 'r') as json_file:
     for item in assetData['items']['weapons']:
         itemsList.append(Weapon(**item))    
 
-
 # characters 
 player = characterList[0]
 evandor = characterList[1]
 
-#rooms 
-courtyard = roomsList[0]
-foyer = roomsList[1]
-armory = roomsList[2]
-kitchen = roomsList[3]
-diningRoom = roomsList[4]
-chapel = roomsList[5]
-library = roomsList[6]
-grandHall = roomsList[7]
-cellar = roomsList[8]
-dungeon = roomsList[9]
+#rooms for accessing, room id is key 
+roomDict = {}
+
+for room in roomsList:
+    roomDict[room.id] = room 
+
 
 
 
