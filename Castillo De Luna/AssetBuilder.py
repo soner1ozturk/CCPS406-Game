@@ -24,7 +24,7 @@ with open(assets, 'r') as json_file:
 
 
 # characters 
-mainChar = characterList[0]
+player = characterList[0]
 evandor = characterList[1]
 
 #rooms 
