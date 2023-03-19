@@ -11,7 +11,7 @@ def move():
         # updates player location and reprompts for next action
         newRoom = roomDict[player._getRoom().adjRooms[direction]]
         player._setRoom(newRoom)
-        print(">  Entering the {new_room}...".format(new_room = newRoom._getRoomName()))
+        print(">  Entering the {new_room}... ".format(new_room = newRoom._getRoomName()))
         get_action() 
     # no adj room in inputted direction
     else:
