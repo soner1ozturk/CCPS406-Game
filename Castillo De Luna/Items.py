@@ -5,8 +5,8 @@ class Item:
         self.firstMessage = firstMessage
         self.secondMessage = secondMessage
     
-    def _getItemName(self):
-        return self.name
+    def getName(self):
+        return self.name.upper()
     
     def __repr__(self):
         return f'<Item: {self.name}>'

@@ -12,53 +12,57 @@ def quit():
 
 def move():
     direction = input('Which direction to move? [N/S/E/W]: ').upper()
-    if player._getRoom().adjRooms[direction] != None:
-        # updates player location and reprompts for next action
-        newRoom = roomDict[player._getRoom().adjRooms[direction]]
-        player._setRoom(newRoom)
-        print(f">  Entering the {newRoom._getRoomName()}... ")
-        get_action() 
-    # no adj room in inputted direction
-    else:
-        print("There is nothing in that direction... ")
+    try:
+        if player.getAdjRooms()[direction]:
+            # updates player location and reprompts for next action
+            newRoom = roomDict[player.getAdjRooms()[direction]]
+            player.setRoom(newRoom)
+            print(f">  Entering the {newRoom.getRoomName()}... ")
+            get_action() 
+        # no adj room in inputted direction
+        else:
+            print("There is nothing in that direction... ")
+            move() 
+    except KeyError:
+        print("That is not a valid direction.")
         move() 
 
 def increase_health(item):
-    player.health = min(player._getHealth() + item.restoreHealth, MAX_HEALTH)
-    print(f" > HP + {item.restoreHealth} ---> HP: {player._getHealth()}/{MAX_HEALTH}")
+    player.setHealth(item.restoreHealth)
+    print(f" > HP + {item.restoreHealth} ---> HP: {player.getHealth()}/{MAX_HEALTH}")
     
 
 def use_item(itemSelection): # to continue 
-    if itemDict[itemSelection].isConsumable():
+    item = itemDict[itemSelection]
+    if item.isConsumable():
         # using elixir item, increases health by item spec if max health is not yet reached
-        if itemSelection == "ELIXIR":
-            if player._getHealth() >= MAX_HEALTH:
-                print(f"HP: {player._getHealth()}/{MAX_HEALTH} -- MAX HP ALREADY REACHED")
-                # returns for reprompt 
+        if item.restoreHealth:
+            if player.getHealth() >= MAX_HEALTH:
+                print(f"HP: {player.getHealth()}/{MAX_HEALTH} -- MAX HP ALREADY REACHED")
                 get_action() 
             # increases health as per item spec
-            increase_health(itemDict[itemSelection])
+            increase_health(item)
         # removes consumable item from player inventory when used
-        player._remInv(itemDict[itemSelection])
+        player.remInv(item)
 
-    elif itemDict[itemSelection].isWeapon():
+    elif item.isWeapon():
         pass
 
 
 def open_inventory():
     # populate inventory items 
     inv = {}
-    for item in player._getInv():
-        if item._getItemName().upper() not in inv:
-            inv[item._getItemName().upper()] = 1
+    for item in player.getInv():
+        if item.getName() not in inv:
+            inv[item.getName()] = 1
         else:
-            inv[item._getItemName().upper()] += 1
+            inv[item.getName()] += 1
     if len(inv) == 0:
         print("Inventory is empty... ")
     # display inventory and prompts for selection 
     else:
+        print(inv)
         while True:
-            print(inv)
             selection = input("Opening inventory, select item:  ").upper() 
             if selection in inv.keys():
                 print("Using " + selection) # TODO: implement item use functionality
@@ -95,7 +99,7 @@ if __name__ == "__main__":
     name = input("Let's start with your name: ")
     player.setName(name)
 #   # room.id: 2 is the foyer (starting room)
-    player._setRoom(roomDict[2])
+    player.setRoom(roomDict[2])
     time.sleep(1)
     print("Hello " + player.getName() + ".")
     print("GAME STORYLINE START --------------------------------")
