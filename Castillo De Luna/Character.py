@@ -1,9 +1,12 @@
+MAX_HEALTH = 100
+
 class Character:
-    def __init__(self, id, name, health):
+    def __init__(self, id, name, health, damage):
         self.id = id
         self.name = name
         self.health = health
-
+        self.damage = damage
+        
     def getName(self):
         return self.name
     
@@ -12,14 +15,17 @@ class Character:
     
     def _getRoom(self):
         return self.room
+    
+    def _getHealth(self):
+        return self.health
 
     
     def __repr__(self):
         return f'<Character: {self.name}>'
 
 class GoodCharacter(Character): #sublcass, inherits from Character
-    def __init__(self, id, name, health):
-        super().__init__(id, name, health)
+    def __init__(self, id, name, health, damage):
+        super().__init__(id, name, health, damage)
         self.inventory = []
     
     def setName(self, name):
@@ -36,5 +42,5 @@ class GoodCharacter(Character): #sublcass, inherits from Character
 
 
 class BadCharacter(Character): #subclass, inherits from Character
-    def __init__(self, id, name, health):
-        super().__init__(id, name, health)
+    def __init__(self, id, name, health, damage):
+        super().__init__(id, name, health, damage)
