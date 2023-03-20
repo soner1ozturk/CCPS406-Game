@@ -10,14 +10,18 @@ class Character:
     def getName(self):
         return self.name
     
-    def _setRoom(self, room):
+    def setRoom(self, room):
         self.room = room
     
-    def _getRoom(self):
+    def getRoom(self):
         return self.room
     
-    def _getHealth(self):
+    def getHealth(self):
         return self.health
+    
+    def setHealth(self, hp):
+        self.health = min(self.getHealth() + hp, MAX_HEALTH)
+    
 
     
     def __repr__(self):
@@ -31,14 +35,19 @@ class GoodCharacter(Character): #sublcass, inherits from Character
     def setName(self, name):
         self.name = name
 
-    def _getInv(self):
+    def getInv(self):
         return self.inventory
     
-    def _addInv(self, item):
+    def addInv(self, item):
         self.inventory.append(item)
 
-    def _remInv(self, item):
+    def remInv(self, item):
         self.inventory.remove(item)
+    # returns adj rooms of room currently in 
+    def getAdjRooms(self):
+        return self.room.adjRooms
+    
+
 
 
 class BadCharacter(Character): #subclass, inherits from Character

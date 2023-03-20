@@ -31,11 +31,9 @@ roomDict = {}
 for room in roomsList:
     roomDict[room.id] = room 
 
-#items for accessing, item name is key 
+#items for accessing, item name.upper() is key 
 itemDict = {}
 for item in itemsList:
-    itemDict[item._getItemName().upper()] = item
-
-
+    itemDict[item.getName()] = item
 
 
