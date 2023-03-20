@@ -103,7 +103,7 @@
       {
         "id": 4,
         "name": "Elixir", 
-        "restoreHealth": 10,
+        "restoreHealth": 20,
         "firstMessage": "Mystical elixir heals wounds",
         "secondMessage": "Elixir replenishes health"
       },
@@ -158,14 +158,16 @@
           {
           "id":1,
           "name": "Evander",
-          "health": 5 
+          "health": 100,
+          "damage": 1
           }
       ],
       "badCharacter" : [
       {
         "id": 2,
         "name": "Orion",
-        "health": 5
+        "health": 100,
+        "damage": 20
       }
     ]
   },
