@@ -37,3 +37,5 @@ for item in itemsList:
     itemDict[item.getName()] = item
 
 
+player.addInv(itemDict['SWORD'])
+
