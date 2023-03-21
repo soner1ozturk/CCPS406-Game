@@ -18,9 +18,16 @@ class Character:
     
     def getHealth(self):
         return self.health
+
+    def getDamage(self):
+        return self.damage
     
     def setHealth(self, hp):
         self.health = min(self.getHealth() + hp, MAX_HEALTH)
+
+    def setDamage(self, dmg):
+        self.damage = min(self.getDamage() + dmg, MAX_HEALTH)
+
     
 
     
@@ -31,6 +38,7 @@ class GoodCharacter(Character): #sublcass, inherits from Character
     def __init__(self, id, name, health, damage):
         super().__init__(id, name, health, damage)
         self.inventory = []
+        self.equipped = []
     
     def setName(self, name):
         self.name = name
@@ -47,6 +55,13 @@ class GoodCharacter(Character): #sublcass, inherits from Character
     def getAdjRooms(self):
         return self.room.adjRooms
     
+    def addEquip(self, item):
+        self.equipped.append(item)
+
+    def getEquipped(self):
+        return self.equipped
+    
+
 
 
 

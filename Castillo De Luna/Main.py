@@ -30,7 +30,21 @@ def move():
 def increase_health(item):
     player.setHealth(item.restoreHealth)
     print(f" > HP + {item.restoreHealth} ---> HP: {player.getHealth()}/{MAX_HEALTH}")
-    
+
+
+def equip_weapon(item):
+    if item not in player.getEquipped():
+        player.addEquip(item)
+        print(player.equipped)
+        print (item in player.equipped)
+        player.setDamage(item.damage)
+        print(f"{item.getName()} equipped ---> DMG: {player.getDamage()}/{MAX_HEALTH}")
+        
+    else:
+        print("Item already equipped.")
+    get_action()
+
+
 
 def use_item(itemSelection): # to continue 
     item = itemDict[itemSelection]
@@ -40,12 +54,13 @@ def use_item(itemSelection): # to continue
             if player.getHealth() >= MAX_HEALTH:
                 print(f"HP: {player.getHealth()}/{MAX_HEALTH} -- MAX HP ALREADY REACHED")
                 get_action() 
-            # increases health as per item spec
-            increase_health(item)
+            else:
+                increase_health(item)
         # removes consumable item from player inventory when used
         player.remInv(item)
 
     elif item.isWeapon():
+        equip_weapon(item)
         pass
 
 
@@ -65,7 +80,7 @@ def open_inventory():
         while True:
             selection = input("Opening inventory, select item:  ").upper() 
             if selection in inv.keys():
-                print("Using " + selection) # TODO: implement item use functionality
+                # print("Using " + selection) # TODO: implement item use functionality
                 use_item(selection)
                 break
             else:
