@@ -7,7 +7,7 @@ assets="assetText.json"
 characterList = []
 roomsList = []
 itemsList = []
-gameData=[]
+gameData= []
 messagesDict = {}
 gameStartText = {} 
 
@@ -48,3 +48,9 @@ with open(assets, 'r') as json_file:
     itemDict = {}
     for item in itemsList:
         itemDict[item.getName()] = item
+
+    player.addInv(itemDict['ELIXIR'])
+    player.addInv(itemDict['SWORD'])
+    player.addInv(itemDict['ELIXIR'])
+    player.addInv(itemDict['ELIXIR'])
+    player.addInv(itemDict['NECKLACE OF DRAGON BEADS'])

@@ -1,3 +1,5 @@
+
+
 MAX_HEALTH = 100
 
 class Character:
