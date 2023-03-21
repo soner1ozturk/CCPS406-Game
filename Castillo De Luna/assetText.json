@@ -1,7 +1,11 @@
 {
-  "gameTitle": "Castillo de Luna",
-  "gameCredits": "Made by Ahmet Soner Ozturk, Jeremy Smith, Michael Kilonzo, Raja Umer",
-  "gameIntro": "Today, in the year of our lord 1137, you find yourself entering Castillo de Luna. \"Welcome Evander\" is written on the archway above the outside door. You think to yourself, \"This place could be filled with great mysteries or great treasures\". So grab your sword, sharpen your skills, and prepare to embark on an epic journey!",
+  "gameStart":[
+	  {
+    "gameTitle": "Castillo de Luna",
+	  "gameCredits": "Made by Ahmet Soner Ozturk, Jeremy Smith, Michael Kilonzo, Raja Umer",
+	  "gameIntro": "Today, in the year of our lord 1137, you find yourself entering Castillo de Luna. \"Welcome Evander\" is written on the archway above the outside door. You think to yourself, \"This place could be filled with great mysteries or great treasures\". So grab your sword, sharpen your skills, and prepare to embark on an epic journey!"
+  }
+  ],
   "room": [
     {
       "id": 1,
