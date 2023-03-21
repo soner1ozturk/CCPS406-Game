@@ -90,7 +90,7 @@ def open_inventory():
 
 
 def check_stats():
-    print(f"Your name is {player.getName()}, and your health is at {player.getHealth()}")
+    print(f"Nobel {player.getName()}, HP: {player.getHealth()}/{MAX_HEALTH} ---- DMG: {player.getDamage()}")
     pass
 
 

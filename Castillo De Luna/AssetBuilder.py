@@ -8,7 +8,10 @@ characterList = []
 roomsList = []
 itemsList = []
 gameData=[]
-messagesList=[]
+messagesDict = {}
+gameStartText = {} 
+
+
 
 # load assets from json file and populates objects 
 with open(assets, 'r') as json_file:
@@ -25,23 +28,23 @@ with open(assets, 'r') as json_file:
         itemsList.append(Consumable(**item))
     for item in assetData['items']['weapons']:
         itemsList.append(Weapon(**item))
-    #for words in assetData['messages']:
-    #    messagesList.append(words)
-
-# characters 
-player = characterList[0]
-evandor = characterList[1]
-
-#rooms for accessing, room id is key 
-roomDict = {}
-for room in roomsList:
-    roomDict[room.id] = room 
-
-#items for accessing, item name.upper() is key 
-itemDict = {}
-for item in itemsList:
-    itemDict[item.getName()] = item
+    for messageKey in assetData['messages'][0]:
+          messagesDict[int(messageKey)] = assetData['messages'][0][messageKey]
+    for gameTextKey in assetData['gameStart'][0]:
+        gameStartText[gameTextKey] = assetData['gameStart'][0][gameTextKey]
 
 
-player.addInv(itemDict['SWORD'])
 
+    # characters 
+    player = characterList[0]
+    evandor = characterList[1]
+
+    #rooms for accessing, room id is key 
+    roomDict = {}
+    for room in roomsList:
+        roomDict[room.id] = room 
+
+    #items for accessing, item name.upper() is key 
+    itemDict = {}
+    for item in itemsList:
+        itemDict[item.getName()] = item
