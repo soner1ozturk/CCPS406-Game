@@ -7,17 +7,20 @@ import time
 
 def quit(): 
     print("Exiting game...")
-    time.sleep(1)
+    time.sleep(0.5)
     exit()
 
 def move():
-    direction = input('Which direction to move? [N/S/E/W]: ').upper()
+    direction = input('Which direction to move? [ N ] [ S ] [ E ] [ W ]: ').upper()
     try:
         if player.getAdjRooms()[direction]:
             # updates player location and reprompts for next action
             newRoom = roomDict[player.getAdjRooms()[direction]]
             player.setRoom(newRoom)
             print(f">  Entering the {newRoom.getRoomName()}... ")
+            # update room visited flag
+            if not newRoom.visited: 
+                newRoom.visited = True 
             get_action() 
         # no adj room in inputted direction
         else:
@@ -27,21 +30,20 @@ def move():
         print("That is not a valid direction.")
         move() 
 
+
 def increase_health(item):
     player.setHealth(item.restoreHealth)
-    print(f" > HP + {item.restoreHealth} ---> HP: {player.getHealth()}/{MAX_HEALTH}")
+    print(f"> HP + {item.restoreHealth} --> HP: {player.getHealth()}/{MAX_HEALTH}")
 
 
 def equip_weapon(item):
     if item not in player.getEquipped():
         player.addEquip(item)
-        print(player.equipped)
-        print (item in player.equipped)
+        print(f"> EQUIPPED: {item.getName().title()} -- DMG: +{item.damage} --> DMG: {player.getDamage() + item.damage}")
         player.setDamage(item.damage)
-        print(f"{item.getName()} equipped ---> DMG: {player.getDamage()}/{MAX_HEALTH}")
         
     else:
-        print("Item already equipped.")
+        print(f"{item.getName().title()} already equipped.")
     get_action()
 
 
@@ -52,7 +54,7 @@ def use_item(itemSelection): # to continue
         # using elixir item, increases health by item spec if max health is not yet reached
         if item.restoreHealth:
             if player.getHealth() >= MAX_HEALTH:
-                print(f"HP: {player.getHealth()}/{MAX_HEALTH} -- MAX HP ALREADY REACHED")
+                print(f"> HP: {player.getHealth()}/{MAX_HEALTH} -- MAX HP ALREADY REACHED")
                 get_action() 
             else:
                 increase_health(item)
@@ -90,7 +92,7 @@ def open_inventory():
 
 
 def check_stats():
-    print(f"Nobel {player.getName()}, HP: {player.getHealth()}/{MAX_HEALTH} ---- DMG: {player.getDamage()}")
+    print(f"> {player.getName()} [ HP: {player.getHealth()}/{MAX_HEALTH} ---- DMG: {player.getDamage()} ]")
     pass
 
 
@@ -117,14 +119,14 @@ def get_action():
 
 if __name__ == "__main__":
     GameStart.start_of_game()
-    name = input("Let's start with your name: ")
-    player.setName(name)
+    name = input("Let's start with your name: ").title()
+    player.setName("Noble " + name)
 #   # room.id: 2 is the foyer (starting room)
     player.setRoom(roomDict[2])
-    time.sleep(1)
+    time.sleep(0.5)
     print("Hello " + player.getName() + ".")
     print("GAME STORYLINE START --------------------------------")
-    time.sleep(1)
+    time.sleep(0.5)
 
     get_action() 
         

@@ -18,4 +18,4 @@ def check_verb(verb):
 
 
 def list_available_verbs():
-    print(" GO  |  INV  |  USE  |  QUIT  |  LIST  | STATS ")
+    print("\n    [  GO  ]  [  INV  ] [  USE  ] [ LIST ] [ STATS ] [ QUIT ]\n")
