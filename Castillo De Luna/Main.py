@@ -87,8 +87,12 @@ def open_inventory():
                 print("Enter a valid inventory item...")
                 open_inventory()
     get_action()
-         
-        
+
+
+def check_stats():
+    print(f"Your name is {player.getName()}, and your health is at {player.getHealth()}")
+    pass
+
 
 def get_action():
     while True:
@@ -100,6 +104,8 @@ def get_action():
             move()
         elif action == "INV":
             open_inventory()
+        elif action == "STATS":
+            check_stats()
         elif action == "QUIT":
             quit()
         

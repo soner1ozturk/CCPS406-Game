@@ -6,9 +6,10 @@
 # list
 # inventory
 # attack
+# stats
 
 def check_verb(verb):
-    verbs = ["GO", "INV", "USE", "QUIT", "LIST"]
+    verbs = ["GO", "INV", "USE", "QUIT", "LIST", "STATS"]
     if verb in verbs:
         print("Good to do that: " + verb)
     else:
@@ -17,4 +18,4 @@ def check_verb(verb):
 
 
 def list_available_verbs():
-    print(" GO  |  INV  |  USE  |  QUIT  |  LIST ")
+    print(" GO  |  INV  |  USE  |  QUIT  |  LIST  | STATS ")
