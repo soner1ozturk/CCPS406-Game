@@ -115,8 +115,8 @@
         "id": 5,
         "name": "Backpack", 
         "restoreHealth": false,
-        "firstMessage": "Hey, its something to hold all of the awsome things I find.",
-        "secondMessage": "A backpack to hold things, maybe I should get backpack!"
+        "firstMessage": "A useful backpack to hold all my belongings. Increases inventory capacity to 10!",
+        "secondMessage": "Hey, its something to hold all of the awsome things I find."
       },
       {
         "id": 6,
@@ -152,15 +152,15 @@
         "id": 2,
         "name": "Sword",
         "damage": 20,
-        "firstMessage": "first time seeing the sword",
+        "firstMessage": "Solid steel sword. DMG + 20",
         "secondMessage": "2nd time seeing the sword"
       },
       {
         "id": 7,
         "name": "Necklace of Dragon Beads",
         "damage": 30,
-        "firstMessage": "Beads from a Dragon, glow brightly. Possibly used as a weapon against evil.",
-        "secondMessage": "Beads still laying on the floor in the corner."
+        "firstMessage": "Necklace made from the most prescious dragon pearls. DMG + 30",
+        "secondMessage": "Beads from a Dragon, glow brightly. Possibly used as a weapon against evil."
       }
     ]
   },
