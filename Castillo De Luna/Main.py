@@ -4,7 +4,7 @@ import GameStart
 import GameEnd
 import ParseVerbs
 import time
-import pprint 
+import random
 
 
 
@@ -13,9 +13,18 @@ def quit():
     time.sleep(0.5)
     exit()
 
+def fight(): 
+    # critical dmg multipler with 5% chance 
+    dmg_array = [player.getDamage(),player.getDamage()*2]
+    dmg_array_weights = [0.95, 0.05]
+
+    print(random.choices(dmg_array, k=1, weights = dmg_array_weights)[0])
+
 def move():
+  
     direction = input('Which direction to move? [ N ] [ S ] [ E ] [ W ]: ').upper()
     try:
+        if direction == "BACK": get_action()
         if player.getAdjRooms()[direction]:
             # updates player location and reprompts for next action
             newRoom = roomDict[player.getAdjRooms()[direction]]
@@ -29,6 +38,7 @@ def move():
         else:
             print("There is nothing in that direction... ")
             move() 
+        
     except KeyError:
         print("That is not a valid direction.")
         move() 
@@ -57,33 +67,34 @@ def use_item(itemSelection): # to continue
         # using elixir item, increases health by item spec if max health is not yet reached
         if item.restoreHealth:
             if player.getHealth() >= MAX_HEALTH:
-                print(f"> HP: {player.getHealth()}/{MAX_HEALTH} -- MAX HP ALREADY REACHED")
+                print(f"> [ HP: {player.getHealth()}/{MAX_HEALTH} ] -- MAX HP ALREADY REACHED")
                 get_action() 
             else:
                 increase_health(item)
-        try:
             # removes consumable item from player inventory when used
             player.remInv(item)
-        except AttributeError:
-            print(f"{itemSelection.title()} already active.")
-
     elif item.isWeapon():
         equip_weapon(item)
-        pass
 
+    
 def drop_item(item):
     item = itemDict[item]
     player.dropInv(item)
-    print(f"Dropping {item.getName()} from inventory...")
+    print(f"Dropping {item.getName().title()} from inventory...")
     open_inventory()
 
 
 def get_inventory_capacity():
-    if itemDict['BACKPACK'] in player.getInv():
+    if itemDict['BACKPACK'] in player.getEquipped():
         return 10
     else:
-        return 3
+        return DEFAULT_INVENTORY_SIZE
 
+def print_inventory(inv):
+    print("\n ============[ INVENTORY ]============ ")
+    for item, count in inv.items():
+        print(f"  > {count} x {item}")
+    print(f" ===============[ {(len(player.getInv()))}/{get_inventory_capacity()} ]=============== \n")
 
 def open_inventory():
     # populate inventory items 
@@ -97,15 +108,15 @@ def open_inventory():
         print("Inventory is empty... ")
     # display inventory and prompts for selection 
     else:
-        print("\n ============[ INVENTORY ]============ ")
-        pprint.PrettyPrinter(sort_dicts=True, width=2).pprint(inv) 
-        print(f" ===============[ {(len(player.getInv()))}/{get_inventory_capacity()} ]=============== \n")
+        print_inventory(inv)
         while True:
-            selection = input("Opening inventory, select item: ").upper() 
+            selection = input("Opening inventory, select item: ").upper()
+            if selection == "BACK": get_action() 
             if selection in inv.keys():
                 # print("Using " + selection) # TODO: implement item use functionality
                 print(f"> {itemDict[selection].firstMessage}")
                 use_or_drop = input(f"Do you want to use or drop {selection.title()}? [USE/DROP]: ").upper()
+                if use_or_drop == "BACK": open_inventory()
                 if use_or_drop == "USE":
                     use_item(selection)
                 elif use_or_drop == "DROP":
@@ -121,8 +132,6 @@ def open_inventory():
 
 def check_stats():
     print(f"> {player.getName()} [ HP: {player.getHealth()}/{MAX_HEALTH} ---- DMG: {player.getDamage()} ]")
-    pass
-
 
 def get_action():
     while True:
@@ -138,11 +147,9 @@ def get_action():
             check_stats()
         elif action == "QUIT":
             quit()
-        
 
-
-        get_action()
-        break 
+        # get_action()
+        # break 
 
 
 if __name__ == "__main__":
@@ -155,6 +162,7 @@ if __name__ == "__main__":
     print("Hello " + player.getName() + ".")
     print("GAME STORYLINE START --------------------------------")
     time.sleep(0.5)
+    print("enter BACK at any prompt to go back to the previous menu.")
 
     get_action() 
         
