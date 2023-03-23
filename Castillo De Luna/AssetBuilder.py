@@ -49,10 +49,3 @@ with open(assets, 'r') as json_file:
     for item in itemsList:
         itemDict[item.getName()] = item
 
-
-player.addInv((itemDict)['SWORD'])
-player.addInv((itemDict)['ELIXIR'])
-player.addInv((itemDict)['ELIXIR'])
-player.addInv((itemDict)['NECKLACE OF DRAGON BEADS'])
-player.addEquip((itemDict)['BACKPACK'])
-print(player.getEquipped())
