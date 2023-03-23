@@ -4,6 +4,9 @@ import GameStart
 import GameEnd
 import ParseVerbs
 import time
+import pprint 
+
+
 
 def quit(): 
     print("Exiting game...")
@@ -58,12 +61,28 @@ def use_item(itemSelection): # to continue
                 get_action() 
             else:
                 increase_health(item)
-        # removes consumable item from player inventory when used
-        player.remInv(item)
+        try:
+            # removes consumable item from player inventory when used
+            player.remInv(item)
+        except AttributeError:
+            print(f"{itemSelection.title()} already active.")
 
     elif item.isWeapon():
         equip_weapon(item)
         pass
+
+def drop_item(item):
+    item = itemDict[item]
+    player.dropInv(item)
+    print(f"Dropping {item.getName()} from inventory...")
+    open_inventory()
+
+
+def get_inventory_capacity():
+    if itemDict['BACKPACK'] in player.getInv():
+        return 10
+    else:
+        return 3
 
 
 def open_inventory():
@@ -78,13 +97,22 @@ def open_inventory():
         print("Inventory is empty... ")
     # display inventory and prompts for selection 
     else:
-        print(inv)
+        print("\n ============[ INVENTORY ]============ ")
+        pprint.PrettyPrinter(sort_dicts=True, width=2).pprint(inv) 
+        print(f" ===============[ {(len(player.getInv()))}/{get_inventory_capacity()} ]=============== \n")
         while True:
-            selection = input("Opening inventory, select item:  ").upper() 
+            selection = input("Opening inventory, select item: ").upper() 
             if selection in inv.keys():
                 # print("Using " + selection) # TODO: implement item use functionality
-                use_item(selection)
-                break
+                print(f"> {itemDict[selection].firstMessage}")
+                use_or_drop = input(f"Do you want to use or drop {selection.title()}? [USE/DROP]: ").upper()
+                if use_or_drop == "USE":
+                    use_item(selection)
+                elif use_or_drop == "DROP":
+                    drop_item(selection)
+                else: 
+                    print("Invalid selection...")
+                    open_inventory()
             else:
                 print("Enter a valid inventory item...")
                 open_inventory()
