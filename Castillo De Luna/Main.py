@@ -20,6 +20,32 @@ def fight():
 
     print(random.choices(dmg_array, k=1, weights = dmg_array_weights)[0])
 
+
+def print_items_on_floor(items_list):
+    items_on_floor = {}
+    for item in items_list:
+        if item.getName() not in items_on_floor:
+            items_on_floor[item.getName()] = 1
+        else:
+            items_on_floor[item.getName()] += 1
+
+    print("\n ==================================== ")
+    for item, count in items_on_floor.items():
+        print(f"  > {count} x {item}")
+    print(f" ==================================== \n")
+
+
+def pick_up_items(curr_room):
+    while curr_room.getItemsInRoom(): 
+        print_items_on_floor(curr_room.getItemsInRoom())
+        selection = input("Select the item you want to pick: ")
+        if itemDict[selection.upper()] in curr_room.getItemsInRoom():
+            item = itemDict[selection.upper()]
+            player.addItem(item)
+            curr_room.removeItemInRoom(itemDict[selection.upper()])
+            print(f"> {item.getName().title()} picked up and added to your inventory.")
+    get_action()
+
 def move():
   
     direction = input('Which direction to move? [ N ] [ S ] [ E ] [ W ]: ').upper()
@@ -31,8 +57,16 @@ def move():
             player.setRoom(newRoom)
             print(f">  Entering the {newRoom.getRoomName()}... ")
             # update room visited flag
-            if not newRoom.visited: 
-                newRoom.visited = True 
+            if not newRoom.visited: newRoom.visited = True 
+            # if items on floor, prompt to ask to pick up items 
+            if newRoom.itemsInRoom: 
+                selection = input(f"There are {len(newRoom.getItemsInRoom())} item(s) on the floor, would you like to pick them up? [Y/N]: ").upper()
+                if selection == "BACK" or selection == "N": get_action()
+                if selection == "Y": pick_up_items(newRoom)
+                else: 
+                    print("Invalid selection...")
+                    selection = input(f"There are {len(newRoom.getItemsInRoom())} item(s) on the floor, would you like to pick them up? [Y/N]: ").upper()
+                
             get_action() 
         # no adj room in inputted direction
         else:
@@ -76,11 +110,16 @@ def use_item(itemSelection): # to continue
     elif item.isWeapon():
         equip_weapon(item)
 
+
     
 def drop_item(item):
     item = itemDict[item]
-    player.dropInv(item)
+    player.dropItem(item)
     print(f"Dropping {item.getName().title()} from inventory...")
+    curr_room = player.getRoom()
+    curr_room.addItemInRoom(item)
+    print(curr_room.getItemsInRoom())
+    
     open_inventory()
 
 
@@ -136,7 +175,7 @@ def check_stats():
 def get_action():
     while True:
         ParseVerbs.list_available_verbs()
-        action = input("What To Do: ").upper()
+        action = input(f"[{player.getRoom().getRoomName().upper()}]: ").upper()
         ParseVerbs.check_verb(action)
         # action to move player in world 
         if action == "GO":
