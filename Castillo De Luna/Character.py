@@ -1,11 +1,10 @@
 
-
 MAX_HEALTH = 100
 DEFAULT_INVENTORY_SIZE = 3 
 
 
 class Character:
-    def __init__(self, id, name, health, damage):
+    def __init__(self, id: int, name: str, health: int, damage: int):
         self.id = id
         self.name = name
         self.health = health
@@ -35,8 +34,8 @@ class Character:
     def __repr__(self):
         return f'<Character: {self.name}>'
 
-class GoodCharacter(Character): #sublcass, inherits from Character
-    def __init__(self, id, name, health, damage):
+class GoodCharacter(Character): #subclass, inherits from Character
+    def __init__(self, id: int, name: str, health: int, damage: int):
         super().__init__(id, name, health, damage)
         self.inventory = []
         self.equipped = []
@@ -68,5 +67,5 @@ class GoodCharacter(Character): #sublcass, inherits from Character
 
 
 class BadCharacter(Character): #subclass, inherits from Character
-    def __init__(self, id, name, health, damage):
+    def __init__(self, id: int, name: str, health: int, damage: int):
         super().__init__(id, name, health, damage)
