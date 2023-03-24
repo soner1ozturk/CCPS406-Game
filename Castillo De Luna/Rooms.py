@@ -1,3 +1,4 @@
+
 class Room:
     def __init__(self, id, name, visited, adjRooms, firstMessage, secondMessage):
         self.id = id
@@ -16,3 +17,9 @@ class Room:
     
     def getItemsInRoom(self):
         return self.itemsInRoom
+
+    def addItemInRoom(self, item):
+        self.itemsInRoom.append(item)
+
+    def removeItemInRoom(self, item):
+        self.itemsInRoom.remove(item)

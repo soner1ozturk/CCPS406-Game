@@ -49,3 +49,4 @@ with open(assets, 'r') as json_file:
     for item in itemsList:
         itemDict[item.getName()] = item
 
+
