@@ -1,5 +1,9 @@
+
+
 MAX_HEALTH = 100
 DEFAULT_INVENTORY_SIZE = 3 
+
+
 class Character:
     def __init__(self, id, name, health, damage):
         self.id = id
@@ -27,9 +31,6 @@ class Character:
 
     def setDamage(self, dmg):
         self.damage = min(self.getDamage() + dmg, MAX_HEALTH)
-
-    
-
     
     def __repr__(self):
         return f'<Character: {self.name}>'
@@ -46,11 +47,12 @@ class GoodCharacter(Character): #sublcass, inherits from Character
     def getInv(self):
         return self.inventory
     
-    def addInv(self, item):
+    def addItem(self, item):
         self.inventory.append(item)
 
-    def dropInv(self, item):
-        self.inventory.remove(item)
+    def dropItem(self, item):
+        self.inventory.remove(item) 
+
     # returns adj rooms of room currently in 
     def getAdjRooms(self):
         return self.room.adjRooms
