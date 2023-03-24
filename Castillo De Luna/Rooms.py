@@ -6,9 +6,13 @@ class Room:
         self.adjRooms = adjRooms
         self.firstMessage = firstMessage
         self.secondMessage = secondMessage
+        self.itemsInRoom=[]
 
     def getRoomName(self):
         return self.name
 
     def __repr__(self):
         return f'<Room: {self.name}>'
+    
+    def getItemsInRoom(self):
+        return self.itemsInRoom
