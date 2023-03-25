@@ -1,12 +1,12 @@
 
 class Room:
-    def __init__(self, id, name, visited, adjRooms, firstMessage, secondMessage):
+    def __init__(self, id: int, name: str, visited: bool, adj_rooms: list, first_message: str, second_message: str):
         self.id = id
         self.name = name
         self.visited = visited
-        self.adjRooms = adjRooms
-        self.firstMessage = firstMessage
-        self.secondMessage = secondMessage
+        self.adjRooms = adj_rooms
+        self.firstMessage = first_message
+        self.secondMessage = second_message
         self.itemsInRoom=[]
 
     def getRoomName(self):
