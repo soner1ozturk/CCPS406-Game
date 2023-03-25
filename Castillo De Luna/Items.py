@@ -1,5 +1,5 @@
 class Item:
-    def __init__(self, id, name, firstMessage, secondMessage):
+    def __init__(self, id: int, name: str, firstMessage: str, secondMessage: str):
         self.id = id
         self.name = name
         self.firstMessage = firstMessage
@@ -12,8 +12,8 @@ class Item:
         return f'<Item: {self.name}>'
 
 class Weapon(Item):
-    def __init__(self, id, name, firstMessage, secondMessage, damage):
-        super().__init__(id, name, firstMessage, secondMessage)
+    def __init__(self, id: int, name: str, first_message: str, second_message: str, damage: int):
+        super().__init__(id, name, first_message, second_message)
         self.damage = damage
     
     def isWeapon(self):
@@ -23,9 +23,9 @@ class Weapon(Item):
         return False
 
 class Consumable(Item):
-    def __init__(self, id, name, firstMessage, secondMessage, restoreHealth):
-        super().__init__(id, name, firstMessage, secondMessage)
-        self.restoreHealth = restoreHealth
+    def __init__(self, id: int, name: str, first_message: str, second_message: str, restore_health: int):
+        super().__init__(id, name, first_message, second_message)
+        self.restoreHealth = restore_health
     
     def isWeapon(self):
         return False 
