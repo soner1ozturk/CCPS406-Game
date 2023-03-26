@@ -76,8 +76,8 @@
       "name": "Cellar",
       "visited": false,
       "adjRooms": {"N": 10,"S": 7,"E": null, "W": null},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "firstMessage": "The castle cellar is a dark and foreboding place, its stone walls dripping with dampness and its narrow corridors lined with rows of dusty wine barrels. But beneath the musty smell of aging spirits, there is a sense of danger lurking in the shadows, as if the very air is thick with secrets waiting to be uncovered.",
+      "secondMessage": "As you return to the narrow stairs into the old castle cellar, you can feel the weight of the history that surrounds you. The shadows seem darker, the air heavier, and you can't shake the feeling that something dangerous is lurking just out of sight, waiting to be discovered."
     },
     {
       "id": 10,
