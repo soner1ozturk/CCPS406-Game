@@ -12,80 +12,80 @@
       "name": "Courtyard",
       "visited": true,
       "adjRooms": {"N": 7,"S": 2,"E": 5,"W": null},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 2,
       "name": "Foyer",
       "visited": false,
       "adjRooms": {"N": 1,"S": null,"E": 4, "W": 3 },
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 3,
       "name": "Armory",
       "visited": false,
       "adjRooms": {"N": null,"S": null,"E": 2,"W": null},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 4,
       "name": "Kitchen",
       "visited": false,
       "adjRooms": {"N": 5,"S": null,"E": null, "W": 2},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 5,
       "name": "Dining Room",
       "visited": false,
       "adjRooms": {"N": 6,"S": 4,"E": null, "W": 1},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 6,
       "name": "Chapel",
       "visited": false,
       "adjRooms": {"N": null,"S": 5,"E": null, "W": 7},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 7,
       "name": "Library",
       "visited": false,
       "adjRooms": {"N": null,"S": 1,"E": 6, "W": 8},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 8,
       "name": "Grand Hall",
       "visited": false,
       "adjRooms": {"N": null,"S": null,"E": 7, "W": null},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 9,
       "name": "Cellar",
       "visited": false,
       "adjRooms": {"N": 10,"S": 7,"E": null, "W": null},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     },
     {
       "id": 10,
       "name": "Dungeon",
       "visited": false,
       "adjRooms": {"N": null,"S": 9,"E": null, "W": null},
-      "firstMessage": "",
-      "secondMessage": ""
+      "firstMessage": "This is first message",
+      "secondMessage": "This is second mesage"
     }
   ],
   "items": {

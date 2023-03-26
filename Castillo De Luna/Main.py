@@ -56,6 +56,7 @@ def move():
             newRoom = roomDict[player.getAdjRooms()[direction]]
             player.setRoom(newRoom)
             print(f">  Entering the {newRoom.getRoomName()}... ")
+            newRoom.getRoomMessage()
             # update room visited flag
             if not newRoom.visited: newRoom.visited = True 
             # if items on floor, prompt to ask to pick up items 
