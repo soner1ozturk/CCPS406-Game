@@ -66,12 +66,12 @@ def pick_up_items(curr_room):
 def use_action():
     consumable_items = {}
 
-    for item in player.get_Inv():
+    for item in player.get_inv():
         if item.is_Consumable():
             if item.get_Name() not in consumable_items:
-                consumable_items[item.get_Name()] = 1
+                consumable_items[item.get_name()] = 1
             else:
-                consumable_items[item.get_Name()] += 1
+                consumable_items[item.get_name()] += 1
         else:
             continue
 
@@ -83,7 +83,7 @@ def use_action():
     for item, count in consumable_items.items():
         print(f"  > {count} x {item}")
     print(f" =====================================")
-    print(f"[ HP:{player.get_Health()}/{MAX_HEALTH} ]\n")
+    print(f"[ HP:{player.get_health()}/{MAX_HEALTH} ]\n")
     selection = input("Select item to use: ").upper()
     if selection == "BACK": get_action()
     if selection in consumable_items.keys():
@@ -127,8 +127,8 @@ def move():
 
 
 def increase_health(item):
-    player.set_Health(item.restoreHealth)
-    print(f"> HP + {item.restoreHealth} --> HP: {player.get_Health()}/{MAX_HEALTH}")
+    player.set_health(item.restoreHealth)
+    print(f"> HP + {item.restoreHealth} --> HP: {player.get_health()}/{MAX_HEALTH}")
 
 
 def equip_action():
