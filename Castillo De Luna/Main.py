@@ -65,7 +65,6 @@ def pick_up_items(curr_room):
 
 def use_action():
     consumable_items = {}
-
     for item in player.get_inv():
         if item.is_consumable():
             if item.get_name() not in consumable_items:
@@ -82,21 +81,20 @@ def use_action():
     print("\n ================[USE]=============== ")
     for item, count in consumable_items.items():
         print(f"  > {count} x {item}")
-    print(f" =====================================")
+    print(f" ====================================")
     print(f"[ HP:{player.get_health()}/{MAX_HEALTH} ]\n")
     selection = input("Select item to use: ").upper()
     if selection == "BACK": get_action()
     if selection in consumable_items.keys():
         print(f"> {itemDict[selection].firstMessage}")
         use_item(selection)
-        player.drop_Item(selection)
+        player.drop_item(selection)
     else:
         print("Enter a valid item...")
         use_action()
 
 
 def move():
-  
     direction = input('Which direction to move? [ N ] [ S ] [ E ] [ W ]: ').upper()
     try:
         if direction == "BACK": get_action()
@@ -118,36 +116,25 @@ def move():
 
 
 def increase_health(item):
-    player.set_health(item.restoreHealth)
+    player.set_health(player.get_health() + item.restoreHealth)
     print(f"> HP + {item.restoreHealth} --> HP: {player.get_health()}/{MAX_HEALTH}")
 
 
 def equip_action():
-    weapon_items = {}
-
-    for item in player.get_inv():
-        if item.is_weapon():
-            if item.get_name() not in weapon_items:
-                weapon_items[item.get_name()] = 1
-            else:
-                weapon_items[item.get_name()] += 1
-        else:
-            continue
-
-    if len(weapon_items) < 1:
-        print("> You have no items to equip.")
+    if len(player.get_equipped()) < 1:
+        print("> You have no items equipped.")
         get_action()
 
     print("\n ============[EQUIPMENT]=========== ")
-    for item, count in weapon_items.items():
-        print(f"  > {count} x {item}")
+    for item in player.get_equipped():
+        print(f"  > {item.get_name().upper()}")
     print(f" =================================== \n")
 
-    selection = input("Select item to use: ").upper()
+    selection = input("Select item to unequip: ").upper()
     if selection == "BACK": get_action()
-    if selection in weapon_items.keys():
+    if itemDict[selection] in player.get_equipped():
         print(f"> {itemDict[selection].firstMessage}")
-        equip_weapon(itemDict[selection])
+        unequip_weapon(itemDict[selection])
     else:
         print("Enter a valid item...")
         equip_action()
@@ -158,7 +145,7 @@ def equip_weapon(item):
     if item not in player.get_equipped():
         player.add_equip(item)
         print(f"> EQUIPPED: {item.get_name().title()} -- DMG: +{item.damage} --> DMG: {player.get_damage() + item.damage}")
-        player.set_damage(item.damage)
+        player.set_damage(player.get_damage() + item.damage)
         
     else:
         print(f"{item.get_name().title()} already equipped.")
@@ -166,7 +153,6 @@ def equip_weapon(item):
 
 
 def unequip_weapon(item):
-    # player.add_Equip(item)
     print(f"> UNEQUIPPED: {item.get_name().title()} -- DMG -{item.damage} --> DMG: {player.get_damage() - item.damage}")
     player.set_damage(player.get_damage() - item.damage)
     player.remove_equip(item)
@@ -196,7 +182,7 @@ def drop_item(item):
             action = input(f"{item.get_name().title()} is currently equipped. Dropping this item will unequip it. Do you want to drop {item.get_name().title()}? [Y/N]: ").upper()
             unequip_weapon(item)
         if item not in player.get_equipped() or action == "Y":
-            player.drop_Item(item)
+            player.drop_item(item)
             print(f"Dropping {item.get_name().title()} from inventory...")
             curr_room = player.get_room()
             curr_room.add_item_in_room(item)
