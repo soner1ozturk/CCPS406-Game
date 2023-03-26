@@ -3,7 +3,7 @@
 	  {
     "gameTitle": "Castillo de Luna",
 	  "gameCredits": "Made by Ahmet Soner Ozturk, Jeremy Smith, Michael Kilonzo, Raja Umer",
-	  "gameIntro": "Today, in the year of our lord 1137, you find yourself entering Castillo de Luna. \"Welcome Evander\" is written on the archway above the outside door. You think to yourself, \"This place could be filled with great mysteries or great treasures\". So grab your sword, sharpen your skills, and prepare to embark on an epic journey!"
+	  "gameIntro": "Today, in the year of our lord 1137, you find yourself entering Castillo de Luna. \"Welcome\" is written on the archway above the outside door. You think to yourself, \"This place could be filled with great mysteries or great treasures\". So grab your sword, sharpen your skills, and prepare to embark on an epic journey!"
   }
   ],
   "room": [
@@ -12,64 +12,64 @@
       "name": "Courtyard",
       "visited": false,
       "adjRooms": {"N": 7,"S": 2,"E": 5,"W": null},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second message"
+      "firstMessage": "The old castle courtyard is a haunting sight. It's surrounded by towering stone walls covered in ivy, with a heavy wooden gate that creaks ominously in the wind. The cobblestone ground is uneven and cracked, with weeds growing wildly in the gaps. The air is thick with the smell of dampness and decay, with the occasional stench of rotting flesh that sends shivers down your spine. The courtyard is deserted, except for the rust on old suits of armor.",
+      "secondMessage": "Returning to the courtyard feels like stepping into a world frozen in time. The imposing stone walls covered in ivy still encircle the space, and the heavy wooden gate still creaks in the wind. The cobblestone ground is still uneven and cracked, with weeds growing out of the gaps, and the air is still thick with the smell of dampness and decay. As you walk deeper into the courtyard, the rusted suits of armor still stand sentinel, as if waiting for an enemy that will never come."
     },
     {
       "id": 2,
       "name": "Foyer",
       "visited": true,
       "adjRooms": {"N": 1,"S": null,"E": 4, "W": 3 },
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second message"
+      "firstMessage": "The moment you step inside the old castle foyer, a pungent smell overwhelms your senses. It's a mixture of mold, mildew, and musty odors that have lingered in the air for centuries. The dimly lit space only adds to the eerie atmosphere, with the flickering candles casting eerie shadows on the cobweb-covered walls. As you walk further into the foyer, you notice the worn and dusty tapestries hanging from the high ceilings, depicting scenes of battles and hunting. The creaky floorboards beneath your feet seem to whisper secrets of the past, and the cold draft that blows from the open windows sends a chill down your spine. You can't shake off the feeling of being watched as you make your way deeper into the castle.",
+      "secondMessage": "Returning to the old castle foyer feels like stepping back in time to a place that time has forgotten. The moment you step inside, the familiar pungent smell of mold, mildew, and decay fills your nostrils, making you want to cover your nose. The dimly lit space still evokes a sense of dread."
     },
     {
       "id": 3,
       "name": "Armory",
       "visited": false,
       "adjRooms": {"N": null,"S": null,"E": 2,"W": null},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second message"
+      "firstMessage": "The old castle armory is a foreboding place, steeped in history and mystery. The room is dimly lit, with flickering torches casting eerie shadows on the walls. The air is thick with the smell of rust, metal, and old leather. The walls are lined with weapons of all kinds, from swords and spears to maces and axes. The armor stands, rusted and dented, seem to be staring at you with their empty eye holes, as if they are warning you of the dangers that lie ahead.",
+      "secondMessage": "Returning to the armory feels like walking back in time to a place of darkness and danger. The dimly lit room is still illuminated by flickering torches that cast eerie shadows on the walls. The air is thick with the same smell of rust, metal, and old leather that you remember."
     },
     {
       "id": 4,
       "name": "Kitchen",
       "visited": false,
       "adjRooms": {"N": 5,"S": null,"E": null, "W": 2},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second message"
+      "firstMessage": "Welcome to the old castle kitchen! You stand before the heavy wooden doors of a kitchen that has been abandoned for years. As you push the doors open, a musty smell hits you, and cobwebs greet you as you step inside. The room is large, with high ceilings and stone walls that have been worn down by time. The only source of light is a small window on the far side of the room, letting in a dim light that barely illuminates the dusty shelves and counters.",
+      "secondMessage": "As you return to the wooden doors of the old castle kitchen, memories flood your mind of your previous visit. You push open the doors, and a rush of musty air greets you once again. The same cobwebs hang from the ceiling and the same rusty pots and pans hang from the walls. But something is different this time. The room seems slightly cleaner, as if someone has come through and swept up the dust and debris."
     },
     {
       "id": 5,
       "name": "Dining Room",
       "visited": false,
       "adjRooms": {"N": 6,"S": 4,"E": null, "W": 1},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "firstMessage": "Welcome to the castle dining room! As you push open the grand double doors, you are greeted by the sight of a long wooden table in the center of the room. The table is set with fine china, silverware, and crystal glasses, as if a feast is about to take place. The room is dimly lit by candles and torches, casting flickering shadows on the stone walls. Ornate chandeliers hang from the high ceiling, adding to the grandeur of the space. The air is filled with the aroma of roasting meat and freshly baked bread, making your mouth water in anticipation. As you approach the table, you notice the intricate carvings on the high-backed chairs and the tapestries that hang on the walls.",
+      "secondMessage": "As you push open the grand double doors to the castle dining room, memories of your previous visit flood back to you. The long wooden table is still in the center of the room, but now it is covered with a thick layer of dust, and the fine china and silverware have been replaced by cobwebs and debris."
     },
     {
       "id": 6,
       "name": "Chapel",
       "visited": false,
       "adjRooms": {"N": null,"S": 5,"E": null, "W": 7},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "firstMessage": "Welcome to the old castle chapel! You push open the large wooden doors, and a sense of awe washes over you as you step inside. The chapel is dimly lit by flickering candles and stained glass windows that cast colorful patterns on the stone walls. The air is still, and the only sound you can hear is the faint whisper of your footsteps on the cold stone floor. The pews are empty, and the altar at the front of the chapel is adorned with ancient relics and lit candles. As you explore the chapel, you notice intricate carvings on the wall.",
+      "secondMessage": "As you push open the large wooden doors to the old castle chapel once again, you are struck by the familiarity of the space. The flickering candles and stained glass windows still cast their colorful patterns on the stone walls, and the air is still and musty. But this time, something is different. The chapel seems to have come to life since your last visit."
     },
     {
       "id": 7,
       "name": "Library",
       "visited": false,
       "adjRooms": {"N": null,"S": 1,"E": 6, "W": 8},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "firstMessage": "You step through the creaky wooden doors of the old castle library, and the musty smell of old books immediately hits you. The room is dimly lit, with rays of light filtering in through stained glass windows depicting scenes of knights and dragons. Rows upon rows of towering bookcases line the walls, filled with dusty tomes and leather-bound volumes. The shelves are stacked so high that you can barely see the top, and the books are so old that some of them have begun to crumble with age.",
+      "secondMessage": "As you make your way back to the old castle library, memories flood back to you of your first visit. The creaky wooden doors still groan as you push them open, and the musty smell of old books still fills the air. You notice that some of the stained glass windows have been repaired, their vibrant colors now shining through with renewed beauty. As you step further into the room, you see that some of the bookcases have been moved."
     },
     {
       "id": 8,
       "name": "Grand Hall",
       "visited": false,
       "adjRooms": {"N": null,"S": null,"E": 7, "W": null},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "firstMessage": "As you enter the grand hall of the castle, you are immediately struck by the awe-inspiring sight before you. The hall is vast, with high ceilings supported by massive stone columns that reach up to the sky. A large, ornate chandelier hangs from the center of the room, casting a warm glow over the space. The walls are adorned with tapestries depicting epic battles and noble feats.",
+      "secondMessage": "As you return to the grand hall of the castle, memories of your previous visit flood back to you. The vastness of the space and the sheer scale of the architecture still take your breath away."
     },
     {
       "id": 9,
@@ -84,8 +84,8 @@
       "name": "Dungeon",
       "visited": false,
       "adjRooms": {"N": null,"S": 9,"E": null, "W": null},
-      "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "firstMessage": "Welcome to the castle dungeon. You descend a narrow, winding staircase that leads you deep underground. The air is damp and musty, and the sound of dripping water echoes through the narrow passageway. As you reach the bottom of the stairs, you enter a dimly lit chamber, with thick stone walls and a low ceiling. Chains hang from the walls, and the floor is covered in straw and filth.",
+      "secondMessage": "As you descend the narrow, winding staircase to the 17th century castle dungeon once again, the musty smell and dim lighting feels all too familiar. The sound of dripping water echoes through the narrow passageway, and you feel the cold, damp air cling to your skin."
     }
   ],
   "items": {
@@ -189,7 +189,8 @@
       "3": "You Died, The End!",
       "4": "There is nothing over there.",
       "5": "There is nothing in that direction.",
-      "6": "Can't go that way."
+      "6": "Can't go that way.",
+      "7": "I am sorry, but your princess is in another castle!"
     }
   ],
   "movement": [
