@@ -7,7 +7,6 @@ import time
 import random
 
 
-
 def quit(): 
     print("Exiting game...")
     time.sleep(0.5)
@@ -15,7 +14,7 @@ def quit():
 
 def fight(): 
     # critical dmg multipler with 5% chance 
-    dmg_array = [player.getDamage(),player.getDamage()*2]
+    dmg_array = [player.get_Damage(),player.get_Damage()*2]
     dmg_array_weights = [0.95, 0.05]
 
     print(random.choices(dmg_array, k=1, weights = dmg_array_weights)[0])
@@ -24,10 +23,10 @@ def fight():
 def print_items_on_floor(items_list):
     items_on_floor = {}
     for item in items_list:
-        if item.getName() not in items_on_floor:
-            items_on_floor[item.getName()] = 1
+        if item.get_Name() not in items_on_floor:
+            items_on_floor[item.get_Name()] = 1
         else:
-            items_on_floor[item.getName()] += 1
+            items_on_floor[item.get_Name()] += 1
 
     print("\n ==================================== ")
     for item, count in items_on_floor.items():
@@ -36,14 +35,14 @@ def print_items_on_floor(items_list):
 
 
 def pick_up_items(curr_room):
-    while curr_room.getItemsInRoom(): 
-        print_items_on_floor(curr_room.getItemsInRoom())
+    while curr_room.get_Items_In_Room(): 
+        print_items_on_floor(curr_room.get_Items_In_Room())
         selection = input("Select the item you want to pick: ")
-        if itemDict[selection.upper()] in curr_room.getItemsInRoom():
+        if itemDict[selection.upper()] in curr_room.get_Items_In_Room():
             item = itemDict[selection.upper()]
-            player.addItem(item)
-            curr_room.removeItemInRoom(itemDict[selection.upper()])
-            print(f"> {item.getName().title()} picked up and added to your inventory.")
+            player.add_Item(item)
+            curr_room.remove_Item_In_Room(itemDict[selection.upper()])
+            print(f"> {item.get_Name().title()} picked up and added to your inventory.")
     get_action()
 
 def move():
@@ -51,22 +50,22 @@ def move():
     direction = input('Which direction to move? [ N ] [ S ] [ E ] [ W ]: ').upper()
     try:
         if direction == "BACK": get_action()
-        if player.getAdjRooms()[direction]:
+        if player.get_Adj_Rooms()[direction]:
             # updates player location and reprompts for next action
-            newRoom = roomDict[player.getAdjRooms()[direction]]
-            player.setRoom(newRoom)
-            print(f">  Entering the {newRoom.getRoomName()}... ")
-            newRoom.getRoomMessage()
+            newRoom = roomDict[player.get_Adj_Rooms()[direction]]
+            player.set_Room(newRoom)
+            print(f">  Entering the {newRoom.get_Room_Name()}... ")
+            newRoom.get_Room_Message()
             # update room visited flag
             if not newRoom.visited: newRoom.visited = True 
             # if items on floor, prompt to ask to pick up items 
             if newRoom.itemsInRoom: 
-                selection = input(f"There are {len(newRoom.getItemsInRoom())} item(s) on the floor, would you like to pick them up? [Y/N]: ").upper()
+                selection = input(f"There are {len(newRoom.get_Items_In_Room())} item(s) on the floor, would you like to pick them up? [Y/N]: ").upper()
                 if selection == "BACK" or selection == "N": get_action()
                 if selection == "Y": pick_up_items(newRoom)
                 else: 
                     print("Invalid selection...")
-                    selection = input(f"There are {len(newRoom.getItemsInRoom())} item(s) on the floor, would you like to pick them up? [Y/N]: ").upper()
+                    selection = input(f"There are {len(newRoom.get_Items_In_Room())} item(s) on the floor, would you like to pick them up? [Y/N]: ").upper()
                 
             get_action() 
         # no adj room in inputted direction
@@ -80,52 +79,52 @@ def move():
 
 
 def increase_health(item):
-    player.setHealth(item.restoreHealth)
-    print(f"> HP + {item.restoreHealth} --> HP: {player.getHealth()}/{MAX_HEALTH}")
+    player.set_Health(item.restoreHealth)
+    print(f"> HP + {item.restoreHealth} --> HP: {player.get_Health()}/{MAX_HEALTH}")
 
 
 def equip_weapon(item):
-    if item not in player.getEquipped():
+    if item not in player.get_Equipped():
         player.addEquip(item)
-        print(f"> EQUIPPED: {item.getName().title()} -- DMG: +{item.damage} --> DMG: {player.getDamage() + item.damage}")
-        player.setDamage(item.damage)
+        print(f"> EQUIPPED: {item.get_Name().title()} -- DMG: +{item.damage} --> DMG: {player.get_Damage() + item.damage}")
+        player.set_Damage(item.damage)
         
     else:
-        print(f"{item.getName().title()} already equipped.")
+        print(f"{item.get_Name().title()} already equipped.")
     get_action()
 
 
 
 def use_item(itemSelection): # to continue 
     item = itemDict[itemSelection]
-    if item.isConsumable():
+    if item.is_Consumable():
         # using elixir item, increases health by item spec if max health is not yet reached
         if item.restoreHealth:
-            if player.getHealth() >= MAX_HEALTH:
-                print(f"> [ HP: {player.getHealth()}/{MAX_HEALTH} ] -- MAX HP ALREADY REACHED")
+            if player.get_Health() >= MAX_HEALTH:
+                print(f"> [ HP: {player.get_Health()}/{MAX_HEALTH} ] -- MAX HP ALREADY REACHED")
                 get_action() 
             else:
                 increase_health(item)
             # removes consumable item from player inventory when used
-            player.remInv(item)
-    elif item.isWeapon():
+            player.rem_Inv(item)
+    elif item.is_Weapon():
         equip_weapon(item)
 
 
     
 def drop_item(item):
     item = itemDict[item]
-    player.dropItem(item)
-    print(f"Dropping {item.getName().title()} from inventory...")
-    curr_room = player.getRoom()
-    curr_room.addItemInRoom(item)
-    print(curr_room.getItemsInRoom())
+    player.drop_Item(item)
+    print(f"Dropping {item.get_Name().title()} from inventory...")
+    curr_room = player.get_Room()
+    curr_room.add_Item_In_Room(item)
+    print(curr_room.get_Items_In_Room())
     
     open_inventory()
 
 
 def get_inventory_capacity():
-    if itemDict['BACKPACK'] in player.getEquipped():
+    if itemDict['BACKPACK'] in player.get_Equipped():
         return 10
     else:
         return DEFAULT_INVENTORY_SIZE
@@ -134,16 +133,16 @@ def print_inventory(inv):
     print("\n ============[ INVENTORY ]============ ")
     for item, count in inv.items():
         print(f"  > {count} x {item}")
-    print(f" ===============[ {(len(player.getInv()))}/{get_inventory_capacity()} ]=============== \n")
+    print(f" ===============[ {(len(player.get_Inv()))}/{get_inventory_capacity()} ]=============== \n")
 
 def open_inventory():
     # populate inventory items 
     inv = {}
     for item in player.getInv():
-        if item.getName() not in inv:
-            inv[item.getName()] = 1
+        if item.get_Name() not in inv:
+            inv[item.get_Name()] = 1
         else:
-            inv[item.getName()] += 1
+            inv[item.get_Name()] += 1
     if len(inv) == 0:
         print("Inventory is empty... ")
     # display inventory and prompts for selection 
@@ -171,12 +170,12 @@ def open_inventory():
 
 
 def check_stats():
-    print(f"> {player.getName()} [ HP: {player.getHealth()}/{MAX_HEALTH} ---- DMG: {player.getDamage()} ]")
+    print(f"> {player.get_Name()} [ HP: {player.get_Health()}/{MAX_HEALTH} ---- DMG: {player.get_Damage()} ]")
 
 def get_action():
     while True:
         ParseVerbs.list_available_verbs()
-        action = input(f"[{player.getRoom().getRoomName().upper()}]: ").upper()
+        action = input(f"[{player.get_Room().get_Room_Name().upper()}]: ").upper()
         ParseVerbs.check_verb(action)
         # action to move player in world 
         if action == "GO":
@@ -195,11 +194,11 @@ def get_action():
 if __name__ == "__main__":
     GameStart.start_of_game()
     name = input("Let's start with your name: ").title()
-    player.setName("Noble " + name)
+    player.set_Name("Noble " + name)
 #   # room.id: 2 is the foyer (starting room)
-    player.setRoom(roomDict[2])
+    player.set_Room(roomDict[2])
     time.sleep(0.5)
-    print("Hello " + player.getName() + ".")
+    print("Hello " + player.get_Name() + ".")
     print("GAME STORYLINE START --------------------------------")
     time.sleep(0.5)
     print("enter BACK at any prompt to go back to the previous menu.")

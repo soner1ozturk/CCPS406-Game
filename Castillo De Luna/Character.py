@@ -11,25 +11,25 @@ class Character:
         self.health = health
         self.damage = damage
         
-    def getName(self):
+    def get_Name(self):
         return self.name
     
-    def setRoom(self, room):
+    def set_Room(self, room):
         self.room = room
     
-    def getRoom(self):
+    def get_Room(self):
         return self.room
     
-    def getHealth(self):
+    def get_Health(self):
         return self.health
 
-    def getDamage(self):
+    def get_Damage(self):
         return self.damage
     
-    def setHealth(self, hp):
+    def set_Health(self, hp):
         self.health = min(self.getHealth() + hp, MAX_HEALTH)
 
-    def setDamage(self, dmg):
+    def set_Damage(self, dmg):
         self.damage = min(self.getDamage() + dmg, MAX_HEALTH)
     
     def __repr__(self):
@@ -41,31 +41,27 @@ class GoodCharacter(Character): #sublcass, inherits from Character
         self.inventory = []
         self.equipped = []
     
-    def setName(self, name):
+    def set_Name(self, name):
         self.name = name
 
-    def getInv(self):
+    def get_Inv(self):
         return self.inventory
     
-    def addItem(self, item):
+    def add_Item(self, item):
         self.inventory.append(item)
 
-    def dropItem(self, item):
+    def drop_Item(self, item):
         self.inventory.remove(item) 
 
     # returns adj rooms of room currently in 
-    def getAdjRooms(self):
+    def get_AdjRooms(self):
         return self.room.adjRooms
     
-    def addEquip(self, item):
+    def add_Equip(self, item):
         self.equipped.append(item)
 
-    def getEquipped(self):
+    def get_Equipped(self):
         return self.equipped
-    
-
-
-
 
 class BadCharacter(Character): #subclass, inherits from Character
     def __init__(self, id, name, health, damage):

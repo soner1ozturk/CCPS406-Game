@@ -5,9 +5,12 @@ class Item:
         self.firstMessage = firstMessage
         self.secondMessage = secondMessage
     
-    def getName(self):
+    def get_Name(self):
         return self.name.upper()
-    
+
+    def get_message(self):
+        return self.firstMessage
+
     def __repr__(self):
         return f'<Item: {self.name}>'
 
@@ -16,10 +19,10 @@ class Weapon(Item):
         super().__init__(id, name, firstMessage, secondMessage)
         self.damage = damage
     
-    def isWeapon(self):
+    def is_Weapon(self):
         return True 
 
-    def isConsumable(self):
+    def is_Consumable(self):
         return False
 
 class Consumable(Item):
@@ -27,8 +30,8 @@ class Consumable(Item):
         super().__init__(id, name, firstMessage, secondMessage)
         self.restoreHealth = restoreHealth
     
-    def isWeapon(self):
+    def is_Weapon(self):
         return False 
 
-    def isConsumable(self):
+    def is_Consumable(self):
         return True

@@ -12,18 +12,18 @@ class Room:
     def __repr__(self):
         return f'<Room: {self.name}>'
 
-    def getRoomName(self):
+    def get_Room_Name(self):
         return self.name
 
-    def getItemsInRoom(self):
+    def get_Items_In_Room(self):
         return self.itemsInRoom
 
-    def addItemInRoom(self, item):
+    def add_Item_In_Room(self, item):
         self.itemsInRoom.append(item)
 
-    def removeItemInRoom(self, item):
+    def remove_Item_In_Room(self, item):
         self.itemsInRoom.remove(item)
 
-    def getRoomMessage(self):
+    def get_Room_Message(self):
         print(self.firstMessage)
         self.firstMessage=self.secondMessage
