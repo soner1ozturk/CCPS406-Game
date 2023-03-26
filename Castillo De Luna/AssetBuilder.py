@@ -47,6 +47,6 @@ with open(assets, 'r') as json_file:
     #items for accessing, item name.upper() is key 
     itemDict = {}
     for item in itemsList:
-        itemDict[item.get_Name()] = item
+        itemDict[item.get_name()] = item
 
 

@@ -5,7 +5,7 @@ class Item:
         self.firstMessage = firstMessage
         self.secondMessage = secondMessage
     
-    def get_Name(self):
+    def get_name(self):
         return self.name.upper()
 
     def get_message(self):

@@ -11,10 +11,10 @@ class Character:
         self.health = health
         self.damage = damage
         
-    def get_Name(self):
+    def get_name(self):
         return self.name
     
-    def set_Room(self, room):
+    def set_room(self, room):
         self.room = room
     
     def get_Room(self):
@@ -54,7 +54,7 @@ class GoodCharacter(Character): #sublcass, inherits from Character
         self.inventory.remove(item) 
 
     # returns adj rooms of room currently in 
-    def get_AdjRooms(self):
+    def get_adj_rooms(self):
         return self.room.adjRooms
     
     def add_Equip(self, item):

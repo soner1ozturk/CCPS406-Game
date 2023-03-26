@@ -7,26 +7,26 @@ class Room:
         self.adjRooms = adjRooms
         self.firstMessage = firstMessage
         self.secondMessage = secondMessage
-        self.itemsInRoom=[]
+        self.items_in_room=[]
 
     def __repr__(self):
         return f'<Room: {self.name}>'
 
-    def get_Room_Name(self):
+    def get_room_name(self):
         return self.name
 
-    def get_Items_In_Room(self):
-        return self.itemsInRoom
+    def get_items_in_rooms(self):
+        return self.items_in_room
 
     def add_Item_In_Room(self, item):
-        self.itemsInRoom.append(item)
+        self.items_in_room.append(item)
 
     def remove_Item_In_Room(self, item):
-        self.itemsInRoom.remove(item)
+        self.items_in_room.remove(item)
 
-    def get_Room_Message(self):
+    def get_room_message(self):
         if self.visited:
-            return self.secondMessage
+            print(self.secondMessage)
         else:
             self.visited=True
-            return self.firstMessage
+            print(self.firstMessage)
