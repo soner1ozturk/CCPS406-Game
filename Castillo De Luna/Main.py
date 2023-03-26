@@ -15,20 +15,20 @@ def quit():
 
 def initialize_game_world():
     # populate initial room items
-    roomDict[1].add_Item_In_Room(itemDict['CANDLESTICK'])
-    roomDict[2].add_Item_In_Room(itemDict['SWORD'])
-    roomDict[3].add_Item_In_Room(itemDict['BACKPACK'])
-    roomDict[4].add_Item_In_Room(itemDict['NOTE1'])
-    roomDict[4].add_Item_In_Room(itemDict['ELIXIR'])
-    roomDict[5].add_Item_In_Room(itemDict['ELIXIR'])
-    roomDict[6].add_Item_In_Room(itemDict['KEY'])
-    roomDict[8].add_Item_In_Room(itemDict['NECKLACE OF DRAGON BEADS'])
+    roomDict[1].add_item_in_room(itemDict['CANDLESTICK'])
+    roomDict[2].add_item_in_room(itemDict['SWORD'])
+    roomDict[3].add_item_in_room(itemDict['BACKPACK'])
+    roomDict[4].add_item_in_room(itemDict['NOTE1'])
+    roomDict[4].add_item_in_room(itemDict['ELIXIR'])
+    roomDict[5].add_item_in_room(itemDict['ELIXIR'])
+    roomDict[6].add_item_in_room(itemDict['KEY'])
+    roomDict[8].add_item_in_room(itemDict['NECKLACE OF DRAGON BEADS'])
     # room.id: 2 is the foyer (starting room)
-    player.set_Room(roomDict[2])
+    player.set_room(roomDict[2])
 
 def fight():
     # critical dmg multipler with 5% chance 
-    dmg_array = [player.get_Damage(),player.get_Damage()*2]
+    dmg_array = [player.get_damage(),player.get_damage()*2]
     dmg_array_weights = [0.95, 0.05]
     print(random.choices(dmg_array, k=1, weights = dmg_array_weights)[0])
 
