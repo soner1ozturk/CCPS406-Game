@@ -67,8 +67,8 @@ def use_action():
     consumable_items = {}
 
     for item in player.get_inv():
-        if item.is_Consumable():
-            if item.get_Name() not in consumable_items:
+        if item.is_consumable():
+            if item.get_name() not in consumable_items:
                 consumable_items[item.get_name()] = 1
             else:
                 consumable_items[item.get_name()] += 1
@@ -106,15 +106,6 @@ def move():
             player.set_room(newRoom)
             print(f">  Entering the {newRoom.get_room_name()}... ")
             newRoom.get_room_message()
-            # if items on floor, prompt to ask to pick up items
-            if newRoom.items_in_room: 
-                selection = input(f"There are {len(newRoom.get_items_in_rooms())} item(s) on the floor, would you like to pick them up? [Y/N]: ").upper()
-                if selection == "BACK" or selection == "N": get_action()
-                if selection == "Y": pick_up_items(newRoom)
-                else: 
-                    print("Invalid selection...")
-                    selection = input(f"There are {len(newRoom.get_items_in_rooms())} item(s) on the floor, would you like to pick them up? [Y/N]: ").upper()
-                
             get_action() 
         # no adj room in inputted direction
         else:
@@ -135,11 +126,11 @@ def equip_action():
     weapon_items = {}
 
     for item in player.get_inv():
-        if item.is_Weapon():
-            if item.get_Name() not in weapon_items:
-                weapon_items[item.get_Name()] = 1
+        if item.is_weapon():
+            if item.get_name() not in weapon_items:
+                weapon_items[item.get_name()] = 1
             else:
-                weapon_items[item.get_Name()] += 1
+                weapon_items[item.get_name()] += 1
         else:
             continue
 
@@ -164,10 +155,10 @@ def equip_action():
 
 
 def equip_weapon(item):
-    if item not in player.get_Equipped():
-        player.addEquip(item)
-        print(f"> EQUIPPED: {item.get_name().title()} -- DMG: +{item.damage} --> DMG: {player.get_Damage() + item.damage}")
-        player.set_Damage(item.damage)
+    if item not in player.get_equipped():
+        player.add_equip(item)
+        print(f"> EQUIPPED: {item.get_name().title()} -- DMG: +{item.damage} --> DMG: {player.get_damage() + item.damage}")
+        player.set_damage(item.damage)
         
     else:
         print(f"{item.get_name().title()} already equipped.")
@@ -176,24 +167,24 @@ def equip_weapon(item):
 
 def unequip_weapon(item):
     # player.add_Equip(item)
-    print(f"> UNEQUIPPED: {item.get_name().title()} -- DMG -{item.damage} --> DMG: {player.getDamage() - item.damage}")
-    player.set_Damage(player.get_damage() - item.damage)
-    player.removeEquip(item)
+    print(f"> UNEQUIPPED: {item.get_name().title()} -- DMG -{item.damage} --> DMG: {player.get_damage() - item.damage}")
+    player.set_damage(player.get_damage() - item.damage)
+    player.remove_equip(item)
 
 
 def use_item(itemSelection): # to continue 
     item = itemDict[itemSelection]
-    if item.is_Consumable():
+    if item.is_consumable():
         # using elixir item, increases health by item spec if max health is not yet reached
         if item.restoreHealth:
-            if player.get_Health() >= MAX_HEALTH:
-                print(f"> [ HP: {player.get_Health()}/{MAX_HEALTH} ] -- MAX HP ALREADY REACHED")
+            if player.get_health() >= MAX_HEALTH:
+                print(f"> [ HP: {player.get_health()}/{MAX_HEALTH} ] -- MAX HP ALREADY REACHED")
                 get_action() 
             else:
                 increase_health(item)
             # removes consumable item from player inventory when used
             player.rem_inv(item)
-    elif item.is_Weapon():
+    elif item.is_weapon():
         equip_weapon(item)
 
 
@@ -201,19 +192,19 @@ def use_item(itemSelection): # to continue
 def drop_item(item):
     item = itemDict[item]
     while True:
-        if item in player.get_Equipped():
-            action = input(f"{item.get_Name().title()} is currently equipped. Dropping this item will unequip it. Do you want to drop {item.get_Name().title()}? [Y/N]: ").upper()
+        if item in player.get_equipped():
+            action = input(f"{item.get_name().title()} is currently equipped. Dropping this item will unequip it. Do you want to drop {item.get_name().title()}? [Y/N]: ").upper()
             unequip_weapon(item)
         if item not in player.get_equipped() or action == "Y":
             player.drop_Item(item)
-            print(f"Dropping {item.get_Name().title()} from inventory...")
-            curr_room = player.get_Room()
+            print(f"Dropping {item.get_name().title()} from inventory...")
+            curr_room = player.get_room()
             curr_room.add_item_in_room(item)
         open_inventory()
 
 
 def get_inventory_capacity():
-    if itemDict['BACKPACK'] in player.get_Equipped():
+    if itemDict['BACKPACK'] in player.get_equipped():
         return 10
     else:
         return DEFAULT_INVENTORY_SIZE
@@ -223,14 +214,14 @@ def print_inventory(inv):
     print("\n ============[ INVENTORY ]============ ")
     for item, count in inv.items():
         print(f"  > {count} x {item}")
-    print(f" ===============[ {(len(player.get_Inv()))}/{get_inventory_capacity()} ]=============== \n")
+    print(f" ===============[ {(len(player.get_inv()))}/{get_inventory_capacity()} ]=============== \n")
 
 
 
 def open_inventory():
     # populate inventory items 
     inv = {}
-    for item in player.get_Inv():
+    for item in player.get_inv():
         if item.get_name() not in inv:
             inv[item.get_name()] = 1
         else:
@@ -262,20 +253,20 @@ def open_inventory():
 
 
 def check_stats():
-    print(f"> {player.get_Name()} [ HP: {player.get_Health()}/{MAX_HEALTH} ---- DMG: {player.get_Damage()} ]")
+    print(f"> {player.get_name()} [ HP: {player.get_health()}/{MAX_HEALTH} ---- DMG: {player.get_damage()} ]")
 
 
 
 def get_action():
     while True:
         ParseVerbs.list_available_verbs()
-        action = input(f"[{player.get_Room().get_room_name().upper()}]: ").upper()
+        action = input(f"[{player.get_room().get_room_name().upper()}]: ").upper()
         ParseVerbs.check_verb(action)
         # action to move player in world 
         if action == "GO":
             move()
         elif action == "PICKUP":
-            pick_up_items(player.get_Room())
+            pick_up_items(player.get_room())
         elif action == "INV":
             open_inventory()
         elif action == "USE":
@@ -293,7 +284,7 @@ if __name__ == "__main__":
     GameStart.start_of_game()
     initialize_game_world()
     name = input("Let's start with your name: ").title()
-    player.set_Name("Noble " + name)
+    player.set_name("Noble " + name)
     time.sleep(0.5)
     print("Hello " + player.get_name() + ".")
     print("GAME STORYLINE START --------------------------------")
