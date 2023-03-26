@@ -10,7 +10,7 @@
     {
       "id": 1,
       "name": "Courtyard",
-      "visited": false,
+      "visited": true,
       "adjRooms": {"N": 7,"S": 2,"E": 5,"W": null},
       "firstMessage": "This is first message",
       "secondMessage": "This is second message"
@@ -18,7 +18,7 @@
     {
       "id": 2,
       "name": "Foyer",
-      "visited": true,
+      "visited": false,
       "adjRooms": {"N": 1,"S": null,"E": 4, "W": 3 },
       "firstMessage": "This is first message",
       "secondMessage": "This is second message"
@@ -201,4 +201,3 @@
     }
   ]
 }
-
