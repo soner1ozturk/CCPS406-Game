@@ -25,5 +25,8 @@ class Room:
         self.itemsInRoom.remove(item)
 
     def get_Room_Message(self):
-        print(self.firstMessage)
-        self.firstMessage=self.secondMessage
+        if self.visited:
+            return self.secondMessage
+        else:
+            self.visited=True
+            return self.firstMessage
