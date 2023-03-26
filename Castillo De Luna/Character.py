@@ -28,10 +28,10 @@ class Character:
         return self.damage
     
     def set_health(self, hp):
-        self.health = min(self.get_health() + hp, MAX_HEALTH)
+        self.health = min(hp, MAX_HEALTH)
 
     def set_damage(self, dmg):
-        self.damage = min(self.get_damage() + dmg, MAX_HEALTH)
+        self.damage = min(dmg, MAX_HEALTH)
     
     def __repr__(self):
         return f'<Character: {self.name}>'
