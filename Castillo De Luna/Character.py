@@ -64,7 +64,7 @@ class GoodCharacter(Character): #sublcass, inherits from Character
     def remove_equip(self, item):
         self.equipped.remove(item)
 
-    def get_Equipped(self):
+    def get_equipped(self):
         return self.equipped
 
 class BadCharacter(Character): #subclass, inherits from Character
