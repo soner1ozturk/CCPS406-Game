@@ -1,3 +1,4 @@
+
 import json
 from Character import *
 from Rooms import *
@@ -50,3 +51,20 @@ with open(assets, 'r') as json_file:
         itemDict[item.get_Name()] = item
 
 
+
+
+
+
+    # characters 
+    player = characterList[0]
+    evandor = characterList[1]
+
+    #rooms for accessing, room id is key 
+    roomDict = {}
+    for room in roomsList:
+        roomDict[room.id] = room 
+
+    #items for accessing, item name.upper() is key 
+    itemDict = {}
+    for item in itemsList:
+        itemDict[item.get_name()] = item

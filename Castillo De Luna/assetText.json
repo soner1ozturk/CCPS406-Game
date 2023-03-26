@@ -13,7 +13,7 @@
       "visited": false,
       "adjRooms": {"N": 7,"S": 2,"E": 5,"W": null},
       "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "secondMessage": "This is second message"
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
       "visited": true,
       "adjRooms": {"N": 1,"S": null,"E": 4, "W": 3 },
       "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "secondMessage": "This is second message"
     },
     {
       "id": 3,
@@ -29,7 +29,7 @@
       "visited": false,
       "adjRooms": {"N": null,"S": null,"E": 2,"W": null},
       "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "secondMessage": "This is second message"
     },
     {
       "id": 4,
@@ -37,7 +37,7 @@
       "visited": false,
       "adjRooms": {"N": 5,"S": null,"E": null, "W": 2},
       "firstMessage": "This is first message",
-      "secondMessage": "This is second mesage"
+      "secondMessage": "This is second message"
     },
     {
       "id": 5,
@@ -201,3 +201,4 @@
     }
   ]
 }
+
