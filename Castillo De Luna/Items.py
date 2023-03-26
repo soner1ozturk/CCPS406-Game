@@ -19,10 +19,10 @@ class Weapon(Item):
         super().__init__(id, name, firstMessage, secondMessage)
         self.damage = damage
     
-    def is_Weapon(self):
+    def is_weapon(self):
         return True 
 
-    def is_Consumable(self):
+    def is_consumable(self):
         return False
 
 class Consumable(Item):
@@ -30,8 +30,8 @@ class Consumable(Item):
         super().__init__(id, name, firstMessage, secondMessage)
         self.restoreHealth = restoreHealth
     
-    def is_Weapon(self):
+    def is_weapon(self):
         return False 
 
-    def is_Consumable(self):
+    def is_consumable(self):
         return True
