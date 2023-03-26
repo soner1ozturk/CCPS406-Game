@@ -22,7 +22,7 @@ with open(assets, 'r') as json_file:
         characterList.append(GoodCharacter(**character))
     for character in assetData['character']['badCharacter']:
         characterList.append(BadCharacter(**character))
-    for room in assetData['room']: 
+    for room in assetData['room']:
         roomsList.append(Room(**room))
     for item in assetData['items']['consumables']:
         itemsList.append(Consumable(**item))
