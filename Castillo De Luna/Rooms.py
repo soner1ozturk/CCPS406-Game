@@ -9,6 +9,9 @@ class Room:
         self.secondMessage = secondMessage
         self.itemsInRoom=[]
 
+    def getRoomName(self):
+        return self.name
+
     def __repr__(self):
         return f'<Room: {self.name}>'
 

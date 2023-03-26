@@ -27,10 +27,10 @@ class Character:
         return self.damage
     
     def set_Health(self, hp):
-        self.health = min(self.getHealth() + hp, MAX_HEALTH)
+        self.health = min(self.get_Health() + hp, MAX_HEALTH)
 
     def set_Damage(self, dmg):
-        self.damage = min(self.getDamage() + dmg, MAX_HEALTH)
+        self.damage = min(dmg, MAX_HEALTH)
     
     def __repr__(self):
         return f'<Character: {self.name}>'
@@ -59,7 +59,9 @@ class GoodCharacter(Character): #sublcass, inherits from Character
     
     def add_Equip(self, item):
         self.equipped.append(item)
-
+    def removeEquip(self, item):
+        self.equipped.remove(item)
+        
     def get_Equipped(self):
         return self.equipped
 
