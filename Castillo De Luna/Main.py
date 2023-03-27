@@ -291,4 +291,7 @@ if __name__ == "__main__":
     get_action() 
         
 
+    #win conditions
+    GameEnd.end_of_game_conditions(badguy)
     GameEnd.end_of_game()
+
