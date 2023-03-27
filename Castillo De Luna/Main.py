@@ -268,6 +268,17 @@ def get_action():
 
 if __name__ == "__main__":
     GameStart.start_of_game()
+    
+        #play game or quit
+    while True:
+        choice = input("Play The Game ?   (play  or  quit)").lower()
+        if choice == "play":
+            break
+        elif choice=="quit":
+            quit()
+        else:
+            print("Invalid input,  play  or  quit")
+            
     initialize_game_world()
     name = input("Let's start with your name: ").title()
     player.set_name("Noble " + name)
