@@ -52,7 +52,10 @@ class GoodCharacter(Character): #sublcass, inherits from Character
         self.inventory.append(item)
 
     def drop_item(self, item):
-        self.inventory.remove(item) 
+        try:
+            self.inventory.remove(item)
+        except ValueError:
+            pass 
 
     # returns adj rooms of room currently in 
     def get_adj_rooms(self):
