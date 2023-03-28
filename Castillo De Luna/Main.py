@@ -293,10 +293,9 @@ def get_action():
 
 if __name__ == "__main__":
     GameStart.start_of_game()
-    
         #play game or quit
     while True:
-        choice = input("Play The Game ?   (play  or  quit)").lower()
+        choice = input("Play The Game ?   (play  or  quit):    ").lower()
         if choice == "play":
             break
         elif choice=="quit":
@@ -309,14 +308,14 @@ if __name__ == "__main__":
     player.set_name("Noble " + name)
     time.sleep(0.5)
     print("Hello " + player.get_name() + ".")
-    print("GAME STORYLINE START --------------------------------")
+    print("GAME STORYLINE START --------------------------------\n")
     time.sleep(0.5)
-    print("enter BACK at any prompt to go back to the previous menu.")
+    print("Enter BACK at any prompt to go back to the previous menu.")
 
     get_action() 
         
 
     #win conditions
-    GameEnd.end_of_game_conditions(badguy)
+    #GameEnd.end_of_game_conditions()
     GameEnd.end_of_game()
 
