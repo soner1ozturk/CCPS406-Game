@@ -59,7 +59,7 @@ class GoodCharacter(Character): #subclass, inherits from Character
 
     # returns adj rooms of room currently in 
     def get_adj_rooms(self):
-        return self.room.adjRooms
+        return self.room.adj_rooms
     
     def add_equip(self, item):
         self.equipped.append(item)
