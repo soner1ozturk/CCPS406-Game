@@ -9,7 +9,7 @@
 # stats
 
 def check_verb(verb):
-    verbs = ["GO", "INV", "USE", "QUIT", "LIST", "STATS", "STORY", "OBJ"]
+    verbs = ["GO", "INV", "EQUIP" ,"USE", "FIGHT", "QUIT", "LIST", "STATS", "STORY", "OBJ"]
     if verb in verbs:
         print("Good to do that: " + verb)
     else:
@@ -18,4 +18,4 @@ def check_verb(verb):
 
 
 def list_available_verbs():
-    print("What would you like to do?\n    [  GO  ] [ STORY ] [ OBJ ] [ PICKUP ] [  INV  ] [  USE  ] [ EQUIP ] [ STATS ] [ QUIT ]\n")
+    print("What would you like to do?\n    [  GO  ] [ STORY ] [ OBJ ] [ PICKUP ] [ FIGHT ] [  INV  ] [  USE  ] [ EQUIP ] [ STATS ] [ QUIT ]\n")

@@ -19,8 +19,8 @@ def story():
     "locked her away in his towering castle library, deep in the dark and treacherous\n"
     "forest. The king and his army are unable to defeat the ogre to rescue the \n"
     "princess, leaving the kingdom in despair. Honourable Knight, you must embark on \n"
-    "this journey, facing many challenges and dangers along the way You must use your\n"
-    " strength, skill and wits to outsmart the ogre and rescue the princess")
+    "this journey, facing many challenges and dangers along the way. You must use your\n"
+    " strength, skill and wits to outsmart the ogre and rescue the princess!")
     print("----------------------------------------------------------------------------------------------------------\n")
 
 
@@ -47,12 +47,24 @@ def initialize_game_world():
     roomDict[8].add_item_in_room(itemDict['NECKLACE OF DRAGON BEADS'])
     # room.id: 2 is the foyer (starting room)
     player.set_room(roomDict[2])
+    orion.set_room(roomDict[7]) #set orion the ogre in the library
 
 def fight():
-    # critical dmg multipler with 5% chance 
+    # critical dmg multipler with 5% chance
     dmg_array = [player.get_damage(),player.get_damage()*2]
     dmg_array_weights = [0.95, 0.05]
+
     print(random.choices(dmg_array, k=1, weights = dmg_array_weights)[0])
+
+    if (orion.health>0) and (orion.get_room()==player.get_room()):
+        GameStart.sword_attack_art()
+
+        #attack orion
+        GameStart.ogre_attack_back_art()
+    else:
+        print("There is nothing to fight in here.")
+
+
 
 
 def print_items_on_floor(items_list):
@@ -199,6 +211,7 @@ def use_item(itemSelection): # to continue
     
 def drop_item(item):
     item = itemDict[item]
+    action=None
     while True:
         if item in player.get_equipped():
             action = input(f"{item.get_name().title()} is currently equipped. Dropping this item will unequip it. Do you want to drop {item.get_name().title()}? [Y/N]: ").upper()
@@ -268,7 +281,8 @@ def check_stats():
 def get_action():
     while True:
         ParseVerbs.list_available_verbs()
-        action = input(f"[{player.get_room().get_room_name().upper()}]: ").upper()
+        room_name=player.get_room().get_room_name().upper()
+        action = input(f"[{room_name}]: ").upper()
         ParseVerbs.check_verb(action)
         # action to move player in world 
         if action == "GO":
@@ -279,6 +293,8 @@ def get_action():
             open_inventory()
         elif action == "USE":
             use_action()
+        elif action == "FIGHT":
+            fight()
         elif action == "EQUIP":
             equip_action()
         elif action == "STATS":
@@ -306,6 +322,7 @@ if __name__ == "__main__":
     initialize_game_world()
     name = input("Let's start with your name: ").title()
     player.set_name("Noble " + name)
+
     time.sleep(0.5)
     print("Hello " + player.get_name() + ".")
     print("GAME STORYLINE START --------------------------------\n")
@@ -313,7 +330,7 @@ if __name__ == "__main__":
     print("Enter BACK at any prompt to go back to the previous menu.")
 
     get_action() 
-        
+
 
     #win conditions
     #GameEnd.end_of_game_conditions()

@@ -8,3 +8,13 @@ def start_of_game():
  \____| \__,_||___/ \__||_||_||_| \___/     |____/  \___|    |_____| \__,_||_| |_| \__,_|
 
     ''')
+def sword_attack_art():
+    print('''
+    
+    ''')
+
+def ogre_attack_back_art():
+    print('''
+    
+    
+    ''')
