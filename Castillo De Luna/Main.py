@@ -53,14 +53,24 @@ def fight():
     # critical dmg multipler with 5% chance
     dmg_array = [player.get_damage(),player.get_damage()*2]
     dmg_array_weights = [0.95, 0.05]
+    damage_given=random.choices(dmg_array, k=1, weights = dmg_array_weights)[0]
+    orion_damage=random.randrange(20)
 
-    print(random.choices(dmg_array, k=1, weights = dmg_array_weights)[0])
-
-    if (orion.health>0) and (orion.get_room()==player.get_room()):
+    if (orion.get_health()>0) and (orion.get_room()==player.get_room()):
         GameStart.sword_attack_art()
+        print(f"You Fight {orion.get_name()}, and deal {damage_given} damage!")
+        orion.set_health(orion.get_health()-damage_given)
+        print(f"{orion.get_name()} has {orion.get_health()} HP remaining")
 
-        #attack orion
+
         GameStart.ogre_attack_back_art()
+        print(f"{orion.get_name()} hits you back for {orion_damage} damage!")
+        player.set_health(player.get_health()-orion_damage)
+
+        #Check for orions death and spawn the finish note.
+        if orion.get_health()<=0:
+            roomDict[7].add_item_in_room(itemDict['NOTE2'])
+
     else:
         print("There is nothing to fight in here.")
 
@@ -280,6 +290,13 @@ def check_stats():
 
 def get_action():
     while True:
+        #STOP EVERYTHING IF YOUR HEALTH IS 0 OR LESS... YOU LOSE
+        if player.get_health()<=0:
+            print("I'm Sorry, You Died")
+            print("Try Again")
+            quit()
+
+
         ParseVerbs.list_available_verbs()
         room_name=player.get_room().get_room_name().upper()
         action = input(f"[{room_name}]: ").upper()
@@ -331,8 +348,5 @@ if __name__ == "__main__":
 
     get_action() 
 
-
-    #win conditions
-    #GameEnd.end_of_game_conditions()
     GameEnd.end_of_game()
 

@@ -73,4 +73,3 @@ class GoodCharacter(Character): #subclass, inherits from Character
 class BadCharacter(Character): #subclass, inherits from Character
     def __init__(self, id: int, name: str, health: int, damage: int):
         super().__init__(id, name, health, damage)
-        self.room=None

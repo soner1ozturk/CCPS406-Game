@@ -10,8 +10,9 @@ def start_of_game():
     ''')
 def sword_attack_art():
     print('''
-    
-    ''')
+             />_________________________________
+    [########[]_________________________________>
+             \>''')
 
 def ogre_attack_back_art():
     print('''

@@ -60,7 +60,7 @@
       "name": "Library",
       "visited": false,
       "adjRooms": {"N": null,"S": 1,"E": 6, "W": 8},
-      "firstMessage": "You step through the creaky wooden doors of the old castle library, and the musty smell of old books immediately hits you. The room is dimly lit, with rays of light filtering in through stained glass windows depicting scenes of knights and dragons. Rows upon rows of towering bookcases line the walls, filled with dusty tomes and leather-bound volumes. The shelves are stacked so high that you can barely see the top, and the books are so old that some of them have begun to crumble with age.",
+      "firstMessage": "You step through the creaky wooden doors of the old castle library, and the musty smell of old books immediately hits you. The room is dimly lit, with rays of light filtering in through stained glass windows depicting scenes of knights and dragons. Rows upon rows of towering bookcases line the walls, filled with dusty tomes and leather-bound volumes. The shelves are stacked so high that you can barely see the top, and the books are so old that some of them have begun to crumble with age. An Ogre stands guard at the back.",
       "secondMessage": "As you make your way back to the old castle library, memories flood back to you of your first visit. The creaky wooden doors still groan as you push them open, and the musty smell of old books still fills the air. You notice that some of the stained glass windows have been repaired, their vibrant colors now shining through with renewed beauty. As you step further into the room, you see that some of the bookcases have been moved."
     },
     {
@@ -143,8 +143,8 @@
         "id": 10,
         "name": "Note2",
         "restoreHealth": false,
-        "firstMessage": "Open the reward.",
-        "secondMessage": "Open the reward."
+        "firstMessage": "If your reading this message, congratulations. But the princess is in another part of the castle!!!",
+        "secondMessage": "Congratulations, but the princess isn't here"
       }
     ],
   "weapons": [
