@@ -3,4 +3,4 @@ def end_of_game():
 
 def end_of_game_conditions(badguy):
     if (badguy.get_health()<=0):
-        print("Brave warrior! You have defeated the ogre, now there is nothing stopping you to reach to the princess!\n")
+        print("You win")

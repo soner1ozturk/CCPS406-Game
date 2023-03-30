@@ -13,6 +13,8 @@ class Item:
 
     def __repr__(self):
         return f'<Item: {self.name}>'
+    def __del__(self):
+        pass
 
 class Weapon(Item):
     def __init__(self, id: int, name: str, firstMessage: str, secondMessage: str, damage: int):

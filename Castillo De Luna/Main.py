@@ -60,18 +60,16 @@ def fight():
         GameStart.sword_attack_art()
         print(f"You Fight {orion.get_name()}, and deal {damage_given} damage!")
         orion.set_health(orion.get_health()-damage_given)
-        
-        if orion.get_health() > 0:
-            print(f"{orion.get_name()} has {orion.get_health()} HP remaining")
-            GameStart.ogre_attack_back_art()
-            print(f"{orion.get_name()} hits you back for {orion_damage} damage!")
-            
+        print(f"{orion.get_name()} has {orion.get_health()} HP remaining")
+
+
+        GameStart.ogre_attack_back_art()
+        print(f"{orion.get_name()} hits you back for {orion_damage} damage!")
         player.set_health(player.get_health()-orion_damage)
 
         #Check for orions death and spawn the finish note.
         if orion.get_health()<=0:
             roomDict[7].add_item_in_room(itemDict['KEY'])
-            GameEnd.end_of_game_conditions(orion)
 
     else:
         print("There is nothing to fight in here.")
@@ -216,8 +214,13 @@ def use_item(itemSelection): # to continue
                 increase_health(item)
             # removes consumable item from player inventory when used
             player.drop_item(item)
+        elif itemDict[itemSelection].id == 9:
+            # roomDict[7].add_room_adjacency(['N'9])
+            roomDict[7].adj_rooms['N'] = 9  # add cellar to library
+            item.__del__()
     elif item.is_weapon():
         equip_weapon(item)
+
 
 
     

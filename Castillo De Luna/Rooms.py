@@ -14,6 +14,9 @@ class Room:
     def get_room_name(self):
         return self.name
 
+    def add_room_adjacency(self, newroomdir):
+        self.adj_rooms=self.adj_rooms.append(newroomdir)
+
     def get_items_in_room(self):
         return self.items_in_room
 
