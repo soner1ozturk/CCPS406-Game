@@ -84,7 +84,7 @@
       "name": "Dungeon",
       "visited": false,
       "adjRooms": {"N": null,"S": 9,"E": null, "W": null},
-      "firstMessage": "Welcome to the castle dungeon. You descend a narrow, winding staircase that leads you deep underground. The air is damp and musty, and the sound of dripping water echoes through the narrow passageway. As you reach the bottom of the stairs, you enter a dimly lit chamber, with thick stone walls and a low ceiling. Chains hang from the walls, and the floor is covered in straw and filth.",
+      "firstMessage": "Welcome to the castle dungeon. You descend a narrow, winding staircase that leads you deep underground. The air is damp and musty, and the sound of dripping water echoes through the narrow passageway. As you reach the bottom of the stairs, you enter a dimly lit chamber, with thick stone walls and a low ceiling. Chains hang from the walls, and the floor is covered in straw and filth.   The Princess was supposed to be down here, but it looks like she has been moved to another part of the castle. Congratulations on clearing this part of the Castillo De Luna!",
       "secondMessage": "As you descend the narrow, winding staircase to the 17th century castle dungeon once again, the musty smell and dim lighting feels all too familiar. The sound of dripping water echoes through the narrow passageway, and you feel the cold, damp air cling to your skin."
     }
   ],
