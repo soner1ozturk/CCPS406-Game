@@ -38,12 +38,12 @@ def obj():
 def initialize_game_world():
     # populate initial room items
     roomDict[1].add_item_in_room(itemDict['CANDLESTICK'])
-    roomDict[2].add_item_in_room(itemDict['SWORD'])
+    roomDict[3].add_item_in_room(itemDict['SWORD'])
     roomDict[3].add_item_in_room(itemDict['BACKPACK'])
     roomDict[4].add_item_in_room(itemDict['NOTE1'])
     roomDict[4].add_item_in_room(itemDict['ELIXIR'])
     roomDict[5].add_item_in_room(itemDict['ELIXIR'])
-    roomDict[6].add_item_in_room(itemDict['KEY'])
+    roomDict[6].add_item_in_room(itemDict['NOTE2'])
     roomDict[8].add_item_in_room(itemDict['NECKLACE OF DRAGON BEADS'])
     # room.id: 2 is the foyer (starting room)
     player.set_room(roomDict[2])
@@ -69,7 +69,7 @@ def fight():
 
         #Check for orions death and spawn the finish note.
         if orion.get_health()<=0:
-            roomDict[7].add_item_in_room(itemDict['NOTE2'])
+            roomDict[7].add_item_in_room(itemDict['KEY'])
 
     else:
         print("There is nothing to fight in here.")

@@ -143,8 +143,8 @@
         "id": 10,
         "name": "Note2",
         "restoreHealth": false,
-        "firstMessage": "If your reading this message, congratulations. But the princess is in another part of the castle!!!",
-        "secondMessage": "Congratulations, but the princess isn't here"
+        "firstMessage": "Knights....  Orion The Ogre has stolen the key to the secret cellar door in the library. Be careful!",
+        "secondMessage": "Find the key, save the princess!"
       }
     ],
   "weapons": [
