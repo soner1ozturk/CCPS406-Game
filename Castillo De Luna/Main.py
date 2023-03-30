@@ -346,8 +346,11 @@ if __name__ == "__main__":
     player.set_name("Noble " + name)
 
     time.sleep(0.5)
-    print("Hello " + player.get_name() + ".")
-    print("GAME STORYLINE START --------------------------------\n")
+    print("Hello " + player.get_name() + ".\n")
+    story()
+    time.sleep(2.0)
+    obj()
+    print("\n")
     time.sleep(0.5)
     print("Enter BACK at any prompt to go back to the previous menu.")
 
