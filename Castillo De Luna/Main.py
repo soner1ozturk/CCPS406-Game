@@ -213,7 +213,7 @@ def use_item(itemSelection): # to continue
             else:
                 increase_health(item)
             # removes consumable item from player inventory when used
-            player.rem_inv(item)
+            player.drop_item(item)
     elif item.is_weapon():
         equip_weapon(item)
 
