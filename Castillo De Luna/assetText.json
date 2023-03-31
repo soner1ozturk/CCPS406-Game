@@ -84,7 +84,7 @@
       "name": "Dungeon",
       "visited": false,
       "adjRooms": {"N": null,"S": 9,"E": null, "W": null},
-      "firstMessage": "As you enter the dungeon, your heart races with anticipation and fear. But as soon as your eyes adjust to the dim light, you see her - the beautiful princess Luna. She stands up, looking at you with grateful eyes, and says, 'Thank you, brave adventurer. You have saved me from a fate worse than death.'",
+      "firstMessage": "As you enter the dungeon, your heart races with anticipation and fear. But as soon as your eyes adjust to the dim light, you see her - the beautiful princess Luna.\nShe stands up, looking at you with grateful eyes, and says, 'Thank you, brave adventurer. You have saved me from a fate worse than death.'",
       "secondMessage": "As you descend the narrow, winding staircase to the 17th century castle dungeon once again, the musty smell and dim lighting feels all too familiar. The sound of dripping water echoes through the narrow passageway, and you feel the cold, damp air cling to your skin."
     }
   ],
