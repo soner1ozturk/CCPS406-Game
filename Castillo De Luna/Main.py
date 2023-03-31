@@ -292,7 +292,17 @@ def check_stats():
 
 
 def get_action():
-    while True:
+    
+    if player.get_room().get_room_name().lower() == "dungeon":
+        time.sleep(0.5)
+        GameEnd.end_of_game()
+        quit_flag = True
+        time.sleep(1.5)
+        exit()
+    else:
+        quit_flag = False
+
+    while not quit_flag:
         #STOP EVERYTHING IF YOUR HEALTH IS 0 OR LESS... YOU LOSE
         if player.get_health()<=0:
             print("I'm Sorry, You Died")
