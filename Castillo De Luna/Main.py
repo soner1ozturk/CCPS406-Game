@@ -16,7 +16,7 @@ def story():
     print("----------------------------------------------------------------------------------------------------------")
     print("                                       STORY                                                          \n")
     print(player.get_name()," a powerful and evil ogre, Orion has kidnapped the beautiful princess Luna and\n"
-    "locked her away in his towering castle library, deep in the dark and treacherous\n"
+    "locked her away in his castle dungeon, deep in the dark and treacherous\n"
     "forest. The king and his army are unable to defeat the ogre to rescue the \n"
     "princess, leaving the kingdom in despair. Honourable Knight, you must embark on \n"
     "this journey, facing many challenges and dangers along the way. You must use your\n"
@@ -27,11 +27,9 @@ def story():
 def obj():
     print("--------------------------------------------------------------------------------------------------------")
     print("                                      OBJECTIVE                                                 \n")
-    print("You must stay alive along your journey, replenishing health if necessary, using health elixirs.\n")
-    print("Along the locked doors, You must find the secret key and the title of\n"
-          "a hidden book used to unlock the cellar door holding Princess Luna.\n")
-    print("You must rescue the princess at the end of the game map while picking \n"
-          "up items along the way, fighting off a deadly evil ogre named Orion.")
+    print("Explore the map and collect useful items along the way.\n")
+    print("You must defeat the ogre Orion\n")
+    print("Figure out how to rescue the princess\n")
     print("--------------------------------------------------------------------------------------------------------\n")
 
 
