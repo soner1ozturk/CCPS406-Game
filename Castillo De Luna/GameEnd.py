@@ -35,4 +35,4 @@ def end_of_game():
     
 def end_of_game_conditions(badguy):
     if (badguy.get_health()<=0):
-        print("You win")
+        print("Brave warrior! You have defeated the evil Orion! Now, there is nothing stopping you from find the princess. Remember the key!")
